@@ -43,6 +43,8 @@ struct CardView: View {
             .listRowSeparatorTint(Color.clear)
             .frame(maxWidth: .infinity)
         }
+        .navigationTitle("Сведения о карточке")
+        .navigationBarTitleDisplayMode(.inline)
         .listStyle(.insetGrouped)
     }
 }
@@ -54,7 +56,7 @@ extension CardView {
         var body: some View {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Yandex")
+                    Text("Google")
                         .fMedium(.title)
                     
                     Button(action: {}) {
@@ -198,6 +200,6 @@ extension CardView {
 struct CardView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CardView().previewDevice("iPhone 12 mini")
+        CardView(vm: CardVM()).previewDevice("iPhone 12 mini")
     }
 }

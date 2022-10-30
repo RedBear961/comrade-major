@@ -15,16 +15,17 @@
 		056C7B502902D1D6001A6A2C /* VKSansDisplay-DemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 056C7B492902D1D6001A6A2C /* VKSansDisplay-DemiBold.ttf */; };
 		056C7B512902D1D6001A6A2C /* VKSansDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 056C7B4A2902D1D6001A6A2C /* VKSansDisplay-Medium.ttf */; };
 		056C7B522902D1D6001A6A2C /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B4B2902D1D6001A6A2C /* ColorSet.swift */; };
-		056C7B582902D501001A6A2C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B572902D501001A6A2C /* MainView.swift */; };
+		056C7B582902D501001A6A2C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B572902D501001A6A2C /* HomeView.swift */; };
 		056C7B5B2902D536001A6A2C /* TemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B5A2902D536001A6A2C /* TemplatesView.swift */; };
 		056C7B5F2902D596001A6A2C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B5E2902D596001A6A2C /* SettingsView.swift */; };
-		056C7B612902E832001A6A2C /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B602902E832001A6A2C /* MainVM.swift */; };
-		056C7B652902EBCF001A6A2C /* CardCellObjectFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B642902EBCF001A6A2C /* CardCellObjectFactory.swift */; };
-		056C7B692903CF8B001A6A2C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B682903CF8B001A6A2C /* Card.swift */; };
 		056C7B6C2903D259001A6A2C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B6B2903D259001A6A2C /* CardView.swift */; };
-		056C7B6E29044AB6001A6A2C /* FavIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B6D29044AB6001A6A2C /* FavIcon.swift */; };
 		056C7B7129045032001A6A2C /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 056C7B7029045032001A6A2C /* CachedAsyncImage */; };
 		056C7B73290451A9001A6A2C /* CardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B72290451A9001A6A2C /* CardVM.swift */; };
+		05C31519290EB12F00D17396 /* ComradeMajor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05C31517290EB12F00D17396 /* ComradeMajor.xcdatamodeld */; };
+		05C3151B290ECF9000D17396 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3151A290ECF9000D17396 /* AsyncImage.swift */; };
+		05C3151E290EE0E900D17396 /* DynamicFetchRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3151D290EE0E900D17396 /* DynamicFetchRequestView.swift */; };
+		05C31520290EE2E100D17396 /* CardIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3151F290EE2E100D17396 /* CardIcon.swift */; };
+		05CED12C290EE36400DD7358 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED12B290EE36400DD7358 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,15 +39,16 @@
 		056C7B4A2902D1D6001A6A2C /* VKSansDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VKSansDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		056C7B4B2902D1D6001A6A2C /* ColorSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		056C7B532902D20A001A6A2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		056C7B572902D501001A6A2C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		056C7B572902D501001A6A2C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		056C7B5A2902D536001A6A2C /* TemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesView.swift; sourceTree = "<group>"; };
 		056C7B5E2902D596001A6A2C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		056C7B602902E832001A6A2C /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
-		056C7B642902EBCF001A6A2C /* CardCellObjectFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellObjectFactory.swift; sourceTree = "<group>"; };
-		056C7B682903CF8B001A6A2C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		056C7B6B2903D259001A6A2C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		056C7B6D29044AB6001A6A2C /* FavIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavIcon.swift; sourceTree = "<group>"; };
 		056C7B72290451A9001A6A2C /* CardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVM.swift; sourceTree = "<group>"; };
+		05C31518290EB12F00D17396 /* ComradeMajor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComradeMajor.xcdatamodel; sourceTree = "<group>"; };
+		05C3151A290ECF9000D17396 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		05C3151D290EE0E900D17396 /* DynamicFetchRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFetchRequestView.swift; sourceTree = "<group>"; };
+		05C3151F290EE2E100D17396 /* CardIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIcon.swift; sourceTree = "<group>"; };
+		05CED12B290EE36400DD7358 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		056C7B432902D1D6001A6A2C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				05C31517290EB12F00D17396 /* ComradeMajor.xcdatamodeld */,
 				056C7B442902D1D6001A6A2C /* FontSet.swift */,
 				056C7B4B2902D1D6001A6A2C /* ColorSet.swift */,
 				056C7B462902D1D6001A6A2C /* Font */,
@@ -115,6 +118,7 @@
 		056C7B542902D4E8001A6A2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				05C3151C290EE0DE00D17396 /* Common */,
 				056C7B552902D4EF001A6A2C /* Story */,
 			);
 			path = UI;
@@ -134,9 +138,8 @@
 		056C7B562902D4F5001A6A2C /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				056C7B642902EBCF001A6A2C /* CardCellObjectFactory.swift */,
-				056C7B602902E832001A6A2C /* MainVM.swift */,
-				056C7B572902D501001A6A2C /* MainView.swift */,
+				05CED12B290EE36400DD7358 /* HomeViewModel.swift */,
+				056C7B572902D501001A6A2C /* HomeView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -167,8 +170,6 @@
 		056C7B662903CF73001A6A2C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				056C7B682903CF8B001A6A2C /* Card.swift */,
-				056C7B6D29044AB6001A6A2C /* FavIcon.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -176,10 +177,20 @@
 		056C7B6A2903D24A001A6A2C /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				056C7B6B2903D259001A6A2C /* CardView.swift */,
 				056C7B72290451A9001A6A2C /* CardVM.swift */,
+				056C7B6B2903D259001A6A2C /* CardView.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		05C3151C290EE0DE00D17396 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				05C3151D290EE0E900D17396 /* DynamicFetchRequestView.swift */,
+				05C3151F290EE2E100D17396 /* CardIcon.swift */,
+				05C3151A290ECF9000D17396 /* AsyncImage.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +224,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					056C7B312902CA5D001A6A2C = {
 						CreatedOnToolsVersion = 13.1;
@@ -262,18 +273,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C31519290EB12F00D17396 /* ComradeMajor.xcdatamodeld in Sources */,
 				056C7B73290451A9001A6A2C /* CardVM.swift in Sources */,
-				056C7B612902E832001A6A2C /* MainVM.swift in Sources */,
-				056C7B692903CF8B001A6A2C /* Card.swift in Sources */,
+				05C3151E290EE0E900D17396 /* DynamicFetchRequestView.swift in Sources */,
 				056C7B5F2902D596001A6A2C /* SettingsView.swift in Sources */,
-				056C7B6E29044AB6001A6A2C /* FavIcon.swift in Sources */,
 				056C7B522902D1D6001A6A2C /* ColorSet.swift in Sources */,
+				05C3151B290ECF9000D17396 /* AsyncImage.swift in Sources */,
 				056C7B6C2903D259001A6A2C /* CardView.swift in Sources */,
 				056C7B5B2902D536001A6A2C /* TemplatesView.swift in Sources */,
+				05CED12C290EE36400DD7358 /* HomeViewModel.swift in Sources */,
 				056C7B4C2902D1D6001A6A2C /* FontSet.swift in Sources */,
-				056C7B582902D501001A6A2C /* MainView.swift in Sources */,
+				056C7B582902D501001A6A2C /* HomeView.swift in Sources */,
 				056C7B362902CA5D001A6A2C /* ComradeMajorApp.swift in Sources */,
-				056C7B652902EBCF001A6A2C /* CardCellObjectFactory.swift in Sources */,
+				05C31520290EE2E100D17396 /* CardIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -331,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -345,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -386,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -407,6 +421,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ComradeMajor/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -421,6 +436,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.georgycheremnykh.comrademajor;
 				PRODUCT_NAME = "Comrade Major";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -438,6 +456,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ComradeMajor/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +471,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.georgycheremnykh.comrademajor;
 				PRODUCT_NAME = "Comrade Major";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -499,6 +521,19 @@
 			productName = CachedAsyncImage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		05C31517290EB12F00D17396 /* ComradeMajor.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				05C31518290EB12F00D17396 /* ComradeMajor.xcdatamodel */,
+			);
+			currentVersion = 05C31518290EB12F00D17396 /* ComradeMajor.xcdatamodel */;
+			path = ComradeMajor.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 056C7B2A2902CA5D001A6A2C /* Project object */;
 }

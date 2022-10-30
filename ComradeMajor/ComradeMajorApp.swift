@@ -6,24 +6,34 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct ComradeMajorApp: App {
     
-    init() {
-        // Use this if NavigationBarTitle is with Large Font
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    @Environment(\.scenePhase) var scenePhase
+    
+    let persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "ComradeMajor")
+        container.loadPersistentStores { _, error in
+            if let error = error as NSError? {
+                // You should add your own error handling code here.
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
         
-        // Use this if NavigationBarTitle is with displayMode = .inline
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        UITableView.appearance().sectionFooterHeight = 0
+        return container
+    }()
+    
+    var context: NSManagedObjectContext {
+        return persistentContainer.viewContext
     }
     
     var body: some Scene {
         WindowGroup {
             TabView {
-                MainView(vm: MainVM())
+                HomeView(viewModel: HomeViewModel())
+                    .environment(\.managedObjectContext, context)
                     .tabItem {
                         Label("Главная", image: "tab_main_icon")
                             .foregroundColor(.cBlue)
@@ -42,6 +52,22 @@ struct ComradeMajorApp: App {
                             .foregroundColor(.cBlue)
                     }
             }
+        }
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+            case .background:
+                saveContext()
+            default:
+                break
+            }
+        }
+    }
+    
+    // MARK: - Core Data Saving support
+    
+    func saveContext() {
+        if context.hasChanges {
+            try! context.save()
         }
     }
 }
