@@ -23,7 +23,10 @@ struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
         sortDescriptors: [NSSortDescriptor] = [],
         @ViewBuilder content: @escaping (FetchedResults<T>) -> Content
     ) {
-        _fetchRequest = FetchRequest<T>(sortDescriptors: sortDescriptors, predicate: predicate)
+        _fetchRequest = FetchRequest<T>(
+            sortDescriptors: sortDescriptors,
+            predicate: predicate
+        )
         self.content = content
     }
 }
@@ -31,14 +34,20 @@ struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
 extension DynamicFetchRequestView where T: AccountCard {
 
     init(
-        withSearchText searchText: String,
+        with searchText: String,
         @ViewBuilder content: @escaping (FetchedResults<T>) -> Content
     ) {
-        let predicate = searchText.count > 0 ? NSPredicate(format: "title CONTAINS[c] %@", searchText) : nil
+        var predicate: NSPredicate?
+        
+        if searchText.count > 0 {
+            let format = "title CONTAINS[c] %@ OR domain CONTAINS[c] %@"
+            predicate = NSPredicate(format: format, searchText, searchText)
+        }
+        
         self.init(
             with: predicate,
             sortDescriptors: [
-                NSSortDescriptor(keyPath: \AccountCard.id, ascending: true)
+                NSSortDescriptor(keyPath: \AccountCard.title, ascending: true)
             ],
             content: content
         )

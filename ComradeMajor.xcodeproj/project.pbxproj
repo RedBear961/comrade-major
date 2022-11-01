@@ -19,13 +19,17 @@
 		056C7B5B2902D536001A6A2C /* TemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B5A2902D536001A6A2C /* TemplatesView.swift */; };
 		056C7B5F2902D596001A6A2C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B5E2902D596001A6A2C /* SettingsView.swift */; };
 		056C7B6C2903D259001A6A2C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B6B2903D259001A6A2C /* CardView.swift */; };
-		056C7B7129045032001A6A2C /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 056C7B7029045032001A6A2C /* CachedAsyncImage */; };
-		056C7B73290451A9001A6A2C /* CardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B72290451A9001A6A2C /* CardVM.swift */; };
+		056C7B73290451A9001A6A2C /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C7B72290451A9001A6A2C /* CardViewModel.swift */; };
 		05C31519290EB12F00D17396 /* ComradeMajor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05C31517290EB12F00D17396 /* ComradeMajor.xcdatamodeld */; };
 		05C3151B290ECF9000D17396 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3151A290ECF9000D17396 /* AsyncImage.swift */; };
 		05C3151E290EE0E900D17396 /* DynamicFetchRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3151D290EE0E900D17396 /* DynamicFetchRequestView.swift */; };
 		05C31520290EE2E100D17396 /* CardIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3151F290EE2E100D17396 /* CardIcon.swift */; };
 		05CED12C290EE36400DD7358 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED12B290EE36400DD7358 /* HomeViewModel.swift */; };
+		05CED1302910405A00DD7358 /* Image+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED12F2910405A00DD7358 /* Image+init.swift */; };
+		05CED1352910435400DD7358 /* EditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED1342910435400DD7358 /* EditCardView.swift */; };
+		05CED1382911185500DD7358 /* CardSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED1372911185500DD7358 /* CardSubject.swift */; };
+		05CED13A2911186A00DD7358 /* AccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED1392911186A00DD7358 /* AccountCard.swift */; };
+		05CED14C291129AF00DD7358 /* EditCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED14B291129AF00DD7358 /* EditCardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,12 +47,17 @@
 		056C7B5A2902D536001A6A2C /* TemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesView.swift; sourceTree = "<group>"; };
 		056C7B5E2902D596001A6A2C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		056C7B6B2903D259001A6A2C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		056C7B72290451A9001A6A2C /* CardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVM.swift; sourceTree = "<group>"; };
+		056C7B72290451A9001A6A2C /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		05C31518290EB12F00D17396 /* ComradeMajor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComradeMajor.xcdatamodel; sourceTree = "<group>"; };
 		05C3151A290ECF9000D17396 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		05C3151D290EE0E900D17396 /* DynamicFetchRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFetchRequestView.swift; sourceTree = "<group>"; };
 		05C3151F290EE2E100D17396 /* CardIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardIcon.swift; sourceTree = "<group>"; };
 		05CED12B290EE36400DD7358 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		05CED12F2910405A00DD7358 /* Image+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+init.swift"; sourceTree = "<group>"; };
+		05CED1342910435400DD7358 /* EditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardView.swift; sourceTree = "<group>"; };
+		05CED1372911185500DD7358 /* CardSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSubject.swift; sourceTree = "<group>"; };
+		05CED1392911186A00DD7358 /* AccountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCard.swift; sourceTree = "<group>"; };
+		05CED14B291129AF00DD7358 /* EditCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056C7B7129045032001A6A2C /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +95,7 @@
 				056C7B622902EA39001A6A2C /* Business Logic */,
 				056C7B662903CF73001A6A2C /* Entity */,
 				056C7B542902D4E8001A6A2C /* UI */,
+				05CED12D2910402F00DD7358 /* Ext */,
 				056C7B392902CA61001A6A2C /* Assets.xcassets */,
 				056C7B432902D1D6001A6A2C /* Resource */,
 			);
@@ -127,21 +136,22 @@
 		056C7B552902D4EF001A6A2C /* Story */ = {
 			isa = PBXGroup;
 			children = (
-				056C7B562902D4F5001A6A2C /* Main */,
+				056C7B562902D4F5001A6A2C /* Home */,
 				056C7B6A2903D24A001A6A2C /* Card */,
+				05CED1332910434600DD7358 /* EditCard */,
 				056C7B592902D51C001A6A2C /* Templates */,
 				056C7B5C2902D54E001A6A2C /* Settings */,
 			);
 			path = Story;
 			sourceTree = "<group>";
 		};
-		056C7B562902D4F5001A6A2C /* Main */ = {
+		056C7B562902D4F5001A6A2C /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				05CED12B290EE36400DD7358 /* HomeViewModel.swift */,
 				056C7B572902D501001A6A2C /* HomeView.swift */,
 			);
-			path = Main;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		056C7B592902D51C001A6A2C /* Templates */ = {
@@ -170,6 +180,7 @@
 		056C7B662903CF73001A6A2C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				05CED1362911184D00DD7358 /* Card */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -177,7 +188,7 @@
 		056C7B6A2903D24A001A6A2C /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				056C7B72290451A9001A6A2C /* CardVM.swift */,
+				056C7B72290451A9001A6A2C /* CardViewModel.swift */,
 				056C7B6B2903D259001A6A2C /* CardView.swift */,
 			);
 			path = Card;
@@ -191,6 +202,40 @@
 				05C3151A290ECF9000D17396 /* AsyncImage.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		05CED12D2910402F00DD7358 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				05CED12E2910403D00DD7358 /* UI */,
+			);
+			path = Ext;
+			sourceTree = "<group>";
+		};
+		05CED12E2910403D00DD7358 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				05CED12F2910405A00DD7358 /* Image+init.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		05CED1332910434600DD7358 /* EditCard */ = {
+			isa = PBXGroup;
+			children = (
+				05CED14B291129AF00DD7358 /* EditCardViewModel.swift */,
+				05CED1342910435400DD7358 /* EditCardView.swift */,
+			);
+			path = EditCard;
+			sourceTree = "<group>";
+		};
+		05CED1362911184D00DD7358 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				05CED1372911185500DD7358 /* CardSubject.swift */,
+				05CED1392911186A00DD7358 /* AccountCard.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +255,6 @@
 			);
 			name = ComradeMajor;
 			packageProductDependencies = (
-				056C7B7029045032001A6A2C /* CachedAsyncImage */,
 			);
 			productName = ComradeMajor;
 			productReference = 056C7B322902CA5D001A6A2C /* Comrade Major.app */;
@@ -242,7 +286,6 @@
 			);
 			mainGroup = 056C7B292902CA5D001A6A2C;
 			packageReferences = (
-				056C7B6F29045032001A6A2C /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = 056C7B332902CA5D001A6A2C /* Products */;
 			projectDirPath = "";
@@ -273,17 +316,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05CED14C291129AF00DD7358 /* EditCardViewModel.swift in Sources */,
 				05C31519290EB12F00D17396 /* ComradeMajor.xcdatamodeld in Sources */,
-				056C7B73290451A9001A6A2C /* CardVM.swift in Sources */,
+				05CED13A2911186A00DD7358 /* AccountCard.swift in Sources */,
+				056C7B73290451A9001A6A2C /* CardViewModel.swift in Sources */,
 				05C3151E290EE0E900D17396 /* DynamicFetchRequestView.swift in Sources */,
 				056C7B5F2902D596001A6A2C /* SettingsView.swift in Sources */,
 				056C7B522902D1D6001A6A2C /* ColorSet.swift in Sources */,
+				05CED1382911185500DD7358 /* CardSubject.swift in Sources */,
 				05C3151B290ECF9000D17396 /* AsyncImage.swift in Sources */,
 				056C7B6C2903D259001A6A2C /* CardView.swift in Sources */,
 				056C7B5B2902D536001A6A2C /* TemplatesView.swift in Sources */,
 				05CED12C290EE36400DD7358 /* HomeViewModel.swift in Sources */,
+				05CED1352910435400DD7358 /* EditCardView.swift in Sources */,
 				056C7B4C2902D1D6001A6A2C /* FontSet.swift in Sources */,
 				056C7B582902D501001A6A2C /* HomeView.swift in Sources */,
+				05CED1302910405A00DD7358 /* Image+init.swift in Sources */,
 				056C7B362902CA5D001A6A2C /* ComradeMajorApp.swift in Sources */,
 				05C31520290EE2E100D17396 /* CardIcon.swift in Sources */,
 			);
@@ -502,25 +550,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		056C7B6F29045032001A6A2C /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		056C7B7029045032001A6A2C /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 056C7B6F29045032001A6A2C /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
-			productName = CachedAsyncImage;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		05C31517290EB12F00D17396 /* ComradeMajor.xcdatamodeld */ = {

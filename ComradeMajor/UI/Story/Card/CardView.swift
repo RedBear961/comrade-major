@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     
-    @StateObject var vm: CardVM
+    @ObservedObject var viewModel: CardViewModel
     
     var body: some View {
         List {
@@ -46,8 +46,52 @@ struct CardView: View {
         .navigationTitle("Сведения о карточке")
         .navigationBarTitleDisplayMode(.inline)
         .listStyle(.insetGrouped)
+//        VStack {
+//
+//        }
+//        .navigationTitle("Сведения о карточке")
+//        .navigationBarTitleDisplayMode(.inline)
+//        .listStyle(.insetGrouped)
     }
 }
+
+//struct
+/*
+ List {
+     Section {
+         Header()
+     }
+     
+     Section {
+         LoginView()
+         PasswordView()
+         WebsiteView()
+     }
+     
+     Section {
+         DescriptionView()
+     }
+     
+     Section {
+         VStack(alignment: .center) {
+             Text("Создано: 19 января 2022")
+                 .fRegular(.footnote)
+                 .foregroundColor(.cGrayText)
+                 .padding(.bottom, 2)
+             
+             Text("Изменено: 20 августа 2022")
+                 .fRegular(.footnote)
+                 .foregroundColor(.cGrayText)
+         }
+     }
+     .listRowBackground(Color.clear)
+     .listRowSeparatorTint(Color.clear)
+     .frame(maxWidth: .infinity)
+ }
+ .navigationTitle("Сведения о карточке")
+ .navigationBarTitleDisplayMode(.inline)
+ .listStyle(.insetGrouped)
+ */
 
 extension CardView {
     
@@ -200,6 +244,6 @@ extension CardView {
 struct CardView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CardView(vm: CardVM()).previewDevice("iPhone 12 mini")
+        CardView(viewModel: CardViewModel()).previewDevice("iPhone 12 mini")
     }
 }

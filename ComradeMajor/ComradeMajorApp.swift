@@ -54,11 +54,8 @@ struct ComradeMajorApp: App {
             }
         }
         .onChange(of: scenePhase) { phase in
-            switch phase {
-            case .background:
+            if phase == .background {
                 saveContext()
-            default:
-                break
             }
         }
     }

@@ -32,5 +32,6 @@ struct CardIcon: View {
                 Color.blue
             }
         }
+        .frame(width: CGFloat(size), height: CGFloat(size))
     }
 }
