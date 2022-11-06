@@ -11,12 +11,12 @@ import CoreData
 
 final class EditCardViewModel: ObservableObject {
     
-    @Published var card: AccountCard
+    @Published var card: Card
     @Published var theme: Color
     
     var managedObjectContext: NSManagedObjectContext
     
-    init(card: AccountCard, managedObjectContext: NSManagedObjectContext) {
+    init(card: Card, managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
         self.card = card
         self.theme = .red

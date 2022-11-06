@@ -11,6 +11,13 @@ struct CardIcon: View {
     
     let domain: String?
     let size: Int
+    let frame: CGFloat
+    
+    init(domain: String? = nil, size: Int, frame: CGFloat? = nil) {
+        self.domain = domain
+        self.size = size
+        self.frame = frame ?? CGFloat(size)
+    }
     
     var url: URL? {
         guard let domain else { return nil }
@@ -32,6 +39,6 @@ struct CardIcon: View {
                 Color.blue
             }
         }
-        .frame(width: CGFloat(size), height: CGFloat(size))
+        .frame(width: frame, height: frame)
     }
 }

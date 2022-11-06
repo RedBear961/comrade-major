@@ -8,4 +8,11 @@
 import Combine
 
 final class CardViewModel: ObservableObject {
+    
+    @Published var card: Card
+    @Published var isShowPassword: Bool = false
+    
+    init(card: Card) {
+        self.card = card
+    }
 }

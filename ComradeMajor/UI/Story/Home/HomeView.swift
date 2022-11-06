@@ -20,7 +20,7 @@ struct HomeView: View {
         NavigationView {
             DynamicFetchRequestView(with: searchText) { cards in
                 List(cards, id: \.id) { card in
-                    NavigationLink(destination: CardView(viewModel: CardViewModel())) {
+                    NavigationLink(destination: CardView(viewModel: CardViewModel(card: card))) {
                         HStack {
                             CardIcon(domain: card.domain, size: 32)
                             
@@ -55,16 +55,21 @@ struct HomeView: View {
         }
     }
     
-    func newCard() -> AccountCard {
-        let card = AccountCard(context: managedObjectContext)
+    func newCard() -> Card {
+        let card = Card(context: managedObjectContext)
         card.id = UUID()
+        let field = CardAuthField(context: managedObjectContext)
+        field.id = UUID()
+        field.card = card
+        card.fields = [field]
         return card
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel()).previewDevice("iPhone 12 mini")
+        HomeView(viewModel: HomeViewModel())
+            .previewDevice("iPhone 12 mini")
     }
 }

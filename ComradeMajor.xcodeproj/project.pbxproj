@@ -27,9 +27,12 @@
 		05CED12C290EE36400DD7358 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED12B290EE36400DD7358 /* HomeViewModel.swift */; };
 		05CED1302910405A00DD7358 /* Image+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED12F2910405A00DD7358 /* Image+init.swift */; };
 		05CED1352910435400DD7358 /* EditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED1342910435400DD7358 /* EditCardView.swift */; };
-		05CED1382911185500DD7358 /* CardSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED1372911185500DD7358 /* CardSubject.swift */; };
-		05CED13A2911186A00DD7358 /* AccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED1392911186A00DD7358 /* AccountCard.swift */; };
+		05CED1382911185500DD7358 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED1372911185500DD7358 /* Card.swift */; };
 		05CED14C291129AF00DD7358 /* EditCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED14B291129AF00DD7358 /* EditCardViewModel.swift */; };
+		05CED14F291144D900DD7358 /* EditCardHeaderFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED14E291144D900DD7358 /* EditCardHeaderFieldView.swift */; };
+		05CED151291147BB00DD7358 /* EditCardAuthFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED150291147BB00DD7358 /* EditCardAuthFieldView.swift */; };
+		05CED153291148C700DD7358 /* CardField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED152291148C700DD7358 /* CardField.swift */; };
+		05CED15629140B4D00DD7358 /* Binding+CardField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED15529140B4D00DD7358 /* Binding+CardField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,9 +58,12 @@
 		05CED12B290EE36400DD7358 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		05CED12F2910405A00DD7358 /* Image+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+init.swift"; sourceTree = "<group>"; };
 		05CED1342910435400DD7358 /* EditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardView.swift; sourceTree = "<group>"; };
-		05CED1372911185500DD7358 /* CardSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSubject.swift; sourceTree = "<group>"; };
-		05CED1392911186A00DD7358 /* AccountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCard.swift; sourceTree = "<group>"; };
+		05CED1372911185500DD7358 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		05CED14B291129AF00DD7358 /* EditCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardViewModel.swift; sourceTree = "<group>"; };
+		05CED14E291144D900DD7358 /* EditCardHeaderFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardHeaderFieldView.swift; sourceTree = "<group>"; };
+		05CED150291147BB00DD7358 /* EditCardAuthFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardAuthFieldView.swift; sourceTree = "<group>"; };
+		05CED152291148C700DD7358 /* CardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardField.swift; sourceTree = "<group>"; };
+		05CED15529140B4D00DD7358 /* Binding+CardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+CardField.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 		05CED12D2910402F00DD7358 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				05CED15429140B3E00DD7358 /* Combine */,
 				05CED12E2910403D00DD7358 /* UI */,
 			);
 			path = Ext;
@@ -223,6 +230,7 @@
 		05CED1332910434600DD7358 /* EditCard */ = {
 			isa = PBXGroup;
 			children = (
+				05CED14D291144C300DD7358 /* Views */,
 				05CED14B291129AF00DD7358 /* EditCardViewModel.swift */,
 				05CED1342910435400DD7358 /* EditCardView.swift */,
 			);
@@ -232,10 +240,27 @@
 		05CED1362911184D00DD7358 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				05CED1372911185500DD7358 /* CardSubject.swift */,
-				05CED1392911186A00DD7358 /* AccountCard.swift */,
+				05CED1372911185500DD7358 /* Card.swift */,
+				05CED152291148C700DD7358 /* CardField.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		05CED14D291144C300DD7358 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05CED14E291144D900DD7358 /* EditCardHeaderFieldView.swift */,
+				05CED150291147BB00DD7358 /* EditCardAuthFieldView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		05CED15429140B3E00DD7358 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				05CED15529140B4D00DD7358 /* Binding+CardField.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,14 +341,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05CED15629140B4D00DD7358 /* Binding+CardField.swift in Sources */,
+				05CED151291147BB00DD7358 /* EditCardAuthFieldView.swift in Sources */,
 				05CED14C291129AF00DD7358 /* EditCardViewModel.swift in Sources */,
 				05C31519290EB12F00D17396 /* ComradeMajor.xcdatamodeld in Sources */,
-				05CED13A2911186A00DD7358 /* AccountCard.swift in Sources */,
 				056C7B73290451A9001A6A2C /* CardViewModel.swift in Sources */,
 				05C3151E290EE0E900D17396 /* DynamicFetchRequestView.swift in Sources */,
+				05CED14F291144D900DD7358 /* EditCardHeaderFieldView.swift in Sources */,
 				056C7B5F2902D596001A6A2C /* SettingsView.swift in Sources */,
 				056C7B522902D1D6001A6A2C /* ColorSet.swift in Sources */,
-				05CED1382911185500DD7358 /* CardSubject.swift in Sources */,
+				05CED1382911185500DD7358 /* Card.swift in Sources */,
 				05C3151B290ECF9000D17396 /* AsyncImage.swift in Sources */,
 				056C7B6C2903D259001A6A2C /* CardView.swift in Sources */,
 				056C7B5B2902D536001A6A2C /* TemplatesView.swift in Sources */,
@@ -331,6 +358,7 @@
 				05CED1352910435400DD7358 /* EditCardView.swift in Sources */,
 				056C7B4C2902D1D6001A6A2C /* FontSet.swift in Sources */,
 				056C7B582902D501001A6A2C /* HomeView.swift in Sources */,
+				05CED153291148C700DD7358 /* CardField.swift in Sources */,
 				05CED1302910405A00DD7358 /* Image+init.swift in Sources */,
 				056C7B362902CA5D001A6A2C /* ComradeMajorApp.swift in Sources */,
 				05C31520290EE2E100D17396 /* CardIcon.swift in Sources */,

@@ -31,7 +31,7 @@ struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
     }
 }
 
-extension DynamicFetchRequestView where T: AccountCard {
+extension DynamicFetchRequestView where T: Card {
 
     init(
         with searchText: String,
@@ -47,7 +47,7 @@ extension DynamicFetchRequestView where T: AccountCard {
         self.init(
             with: predicate,
             sortDescriptors: [
-                NSSortDescriptor(keyPath: \AccountCard.title, ascending: true)
+                NSSortDescriptor(keyPath: \Card.title, ascending: true)
             ],
             content: content
         )

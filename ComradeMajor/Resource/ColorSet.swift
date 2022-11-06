@@ -27,5 +27,9 @@ extension Color {
     
     static var cRed: Color { return Color("Red") }
     
+    static var cSectionBackground: Color { return Color("SectionBackground") }
+    
+    static var cSeparator: Color { return Color("Separator") }
+    
     static var cWhite: Color { return Color("White") }
 }
