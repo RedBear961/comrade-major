@@ -11,8 +11,6 @@ import CoreData
 @main
 public struct ComradeMajorApp: App {
     
-    @Environment(\.scenePhase) var scenePhase
-    
     public let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ComradeMajor")
         container.loadPersistentStores { _, error in
@@ -35,7 +33,7 @@ public struct ComradeMajorApp: App {
         WindowGroup {
             TabView {
                 // Основной экран со списком всех карточек.
-                HomeView(viewModel: HomeViewModel())
+                HomeView(viewModel: HomeViewModel(managedObjectContext: context))
                     .environment(\.managedObjectContext, context)
                     .tabItem {
                         Label("Главная", image: "tab_main_icon")

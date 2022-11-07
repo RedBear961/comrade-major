@@ -40,7 +40,8 @@ public struct CardIcon: View {
                     .resizable()
                     .scaledToFill()
             default:
-                Color.blue
+                Image(systemName: "person.crop.circle")
+                    .font(.system(size: frame))
             }
         }
         .frame(width: frame, height: frame)

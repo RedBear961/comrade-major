@@ -9,34 +9,40 @@ import SwiftUI
 
 public struct HomeView: View {
     
-    @ObservedObject public var viewModel: HomeViewModel
+    @StateObject public var viewModel: HomeViewModel
     
     @Environment(\.managedObjectContext) private var managedObjectContext
     
     @State private var searchText: String = ""
-    @State private var isShowingSheet = false
+    @State private var isShowingEditView = false
     
     public var body: some View {
         NavigationView {
             DynamicFetchRequestView(with: searchText) { cards in
-                List(cards, id: \.self) { card in
-                    NavigationLink(
-                        destination: CardView(viewModel: CardViewModel(card: card)).environment(\.managedObjectContext, managedObjectContext)
-                    ) {
-                        HStack {
-                            CardIcon(domain: card.domain, size: 32)
-                            
-                            VStack(alignment: .leading) {
-                                Text(card.title)
-                                    .fRegular(.title2)
+                List {
+                    ForEach(cards, id: \.self) { card in
+                        NavigationLink(
+                            destination: CardView(viewModel: CardViewModel(card: card)).environment(\.managedObjectContext, managedObjectContext)
+                        ) {
+                            HStack {
+                                CardIcon(domain: card.domain, size: 32)
+                                    .padding(.vertical, 8)
                                 
-                                Text(card.domain)
-                                    .fRegular(.body)
-                                    .foregroundColor(.cGrayText)
-                                    .textCase(.lowercase)
+                                VStack(alignment: .leading) {
+                                    Text(card.title)
+                                        .fRegular(.title2)
+                                    
+                                    Text(card.domain)
+                                        .fRegular(.body)
+                                        .foregroundColor(.cGrayText)
+                                        .textCase(.lowercase)
+                                }
+                                .padding(.horizontal)
                             }
-                            .padding(.horizontal)
                         }
+                    }
+                    .onDelete { indexSet in
+                        viewModel.delete(indexSet, from: cards.compactMap { $0 })
                     }
                 }
                 .navigationTitle("Главная")
@@ -45,33 +51,31 @@ public struct HomeView: View {
                 .textInputAutocapitalization(.never)
             }
             .toolbar {
-                Button(action: { isShowingSheet.toggle() }) {
+                Menu(content: {
+                    ForEach(Card.Template.allCases) { template in
+                        Button(action: {
+                            viewModel.template = template
+                            isShowingEditView.toggle()
+                        }) {
+                            Text(template.asText)
+                        }
+                        
+                    }
+                }, label: {
                     Image(systemName: "plus")
-                }
-                .sheet(isPresented: $isShowingSheet) {
-                    EditCardView(
-                        viewModel: EditCardViewModel(card: newCard(), managedObjectContext: managedObjectContext)
-                    ).environment(\.managedObjectContext, managedObjectContext)
+                })
+                .sheet(isPresented: $isShowingEditView) {
+                    viewModel.editView()
                 }
             }
         }
-    }
-    
-    private func newCard() -> Card {
-        let card = Card(context: managedObjectContext)
-        card.id = UUID()
-        let field = CardAuthField(context: managedObjectContext)
-        field.id = UUID()
-        field.card = card
-        card.fields = [field]
-        return card
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel())
+        HomeView(viewModel: HomeViewModel(managedObjectContext: PreviewContentProvider.shared().context))
             .previewDevice("iPhone 12 mini")
     }
 }

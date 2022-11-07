@@ -36,7 +36,7 @@ public struct CardView: View {
             
             CardDetailView(detail: viewModel.card.detail)
         }
-        .navigationTitle("Веб-аккаунт")
+        .navigationTitle(viewModel.card.template.asText)
         .toolbar {
             Button(action: { isShowingSheet.toggle() }) {
                 Image(systemName: "rectangle.and.pencil.and.ellipsis")
