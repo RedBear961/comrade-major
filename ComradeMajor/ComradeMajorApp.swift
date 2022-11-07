@@ -9,11 +9,11 @@ import SwiftUI
 import CoreData
 
 @main
-struct ComradeMajorApp: App {
+public struct ComradeMajorApp: App {
     
     @Environment(\.scenePhase) var scenePhase
     
-    let persistentContainer: NSPersistentContainer = {
+    public let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ComradeMajor")
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
@@ -27,13 +27,14 @@ struct ComradeMajorApp: App {
         return container
     }()
     
-    var context: NSManagedObjectContext {
+    public var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
-    var body: some Scene {
+    public var body: some Scene {
         WindowGroup {
             TabView {
+                // Основной экран со списком всех карточек.
                 HomeView(viewModel: HomeViewModel())
                     .environment(\.managedObjectContext, context)
                     .tabItem {
@@ -41,13 +42,14 @@ struct ComradeMajorApp: App {
                             .foregroundColor(.cBlue)
                     }
                 
+                // Экран со списком шаблонов карточек.
                 TemplatesView()
                     .tabItem {
                         Label("Шаблоны", image: "tab_templates_icon")
                             .foregroundColor(.cBlue)
                     }
                 
-                
+                // Экран настроек.
                 SettingsView()
                     .tabItem {
                         Label("Настройки", image: "tab_settings_icon")
@@ -55,16 +57,13 @@ struct ComradeMajorApp: App {
                     }
             }
         }
-        .onChange(of: scenePhase) { phase in
-            if phase == .background {
-                saveContext()
-            }
-        }
     }
+    
+    public init() {}
     
     // MARK: - Core Data Saving support
     
-    func saveContext() {
+    public func saveContext() {
         if context.hasChanges {
             try! context.save()
         }

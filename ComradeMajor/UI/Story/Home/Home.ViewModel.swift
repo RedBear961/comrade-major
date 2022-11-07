@@ -8,5 +8,5 @@
 import SwiftUI
 import Combine
 
-final class HomeViewModel: ObservableObject {
+public final class HomeViewModel: ObservableObject {
 }

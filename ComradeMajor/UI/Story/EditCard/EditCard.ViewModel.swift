@@ -9,14 +9,14 @@ import SwiftUI
 import Combine
 import CoreData
 
-final class EditCardViewModel: ObservableObject {
+public final class EditCardViewModel: ObservableObject {
     
-    @Published var card: Card
-    @Published var theme: Color
+    @Published public var card: Card
+    @Published public var theme: Color
     
-    var managedObjectContext: NSManagedObjectContext
+    private var managedObjectContext: NSManagedObjectContext
     
-    init(card: Card, managedObjectContext: NSManagedObjectContext) {
+    public init(card: Card, managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
         self.card = card
         self.theme = .red

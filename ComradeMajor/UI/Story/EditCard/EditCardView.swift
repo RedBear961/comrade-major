@@ -8,42 +8,46 @@
 import SwiftUI
 import CoreData
 
-struct EditCardView: View {
+public struct EditCardView: View {
     
-    @ObservedObject var viewModel: EditCardViewModel
+    @ObservedObject public var viewModel: EditCardViewModel
     
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) private var managedObjectContext
+    @Environment(\.dismiss) private var dismiss
     
-    @State var isSaveButtonPressed: Bool = false
+    // Была ли нажата кнопка сохранение или закрытие происходит другим образом.
+    @State private var isSaveButtonPressed: Bool = false
     
-    var body: some View {
+    public var body: some View {
         List {
-            EditCardHeaderFieldView(card: $viewModel.card, theme: $viewModel.theme)
+            // Заголовок карточки.
+            HeaderFieldView(card: $viewModel.card, theme: $viewModel.theme)
           
+            // Набор всех полей карточки.
             ForEach($viewModel.card.fieldsArray, id: \.self) { field in
                 switch field.wrappedValue {
                 case is CardAuthField:
-                    EditCardAuthFieldView(field: Binding(field: field))
+                    // Поле логина и пароля.
+                    AuthFieldView(field: Binding(field: field))
                 default:
                     preconditionFailure("Неизвестный тип поля")
                 }
             }
             
+            // Подробности о карточке.
             Section(header: Text("Подробности")) {
                 TextEditor(text: $viewModel.card.detail)
             }
             
+            // Кнопка сохранить.
             Section {
                 VStack(alignment: .center) {
-                    Button {
+                    Button() {
                         isSaveButtonPressed.toggle()
                         try? managedObjectContext.save()
                         dismiss()
                     } label: {
-                        Image(systemName: "plus.circle.fill")
                         Text("Сохранить")
-                            .foregroundColor(.white)
                             .fMedium(.title2)
                     }.buttonStyle(.borderedProminent)
                 }
@@ -51,8 +55,6 @@ struct EditCardView: View {
             .frame(maxWidth: .infinity)
             .listRowBackground(Color.clear)
         }
-        .navigationTitle("Новая карточка")
-        .navigationBarTitleDisplayMode(.inline)
         .onDisappear {}
         .onWillDisappear {
             if !isSaveButtonPressed {

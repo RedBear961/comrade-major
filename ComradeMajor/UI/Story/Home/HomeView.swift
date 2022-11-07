@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct HomeView: View {
+public struct HomeView: View {
     
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject public var viewModel: HomeViewModel
     
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.managedObjectContext) private var managedObjectContext
     
-    @State var searchText: String = ""
-    @State var isShowingSheet = false
+    @State private var searchText: String = ""
+    @State private var isShowingSheet = false
     
-    var body: some View {
+    public var body: some View {
         NavigationView {
             DynamicFetchRequestView(with: searchText) { cards in
                 List(cards, id: \.self) { card in
@@ -57,7 +57,7 @@ struct HomeView: View {
         }
     }
     
-    func newCard() -> Card {
+    private func newCard() -> Card {
         let card = Card(context: managedObjectContext)
         card.id = UUID()
         let field = CardAuthField(context: managedObjectContext)

@@ -21,8 +21,7 @@ public struct AsyncImage<Content>: View where Content: View {
     
     private let content: (AsyncImagePhase) -> Content
     
-    public struct LoadingError: Error {
-    }
+    public struct LoadingError: Error {}
     
     public var body: some View {
         content(phase)
