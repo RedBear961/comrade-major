@@ -33,6 +33,7 @@
 		05CED151291147BB00DD7358 /* EditCardAuthFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED150291147BB00DD7358 /* EditCardAuthFieldView.swift */; };
 		05CED153291148C700DD7358 /* CardField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED152291148C700DD7358 /* CardField.swift */; };
 		05CED15629140B4D00DD7358 /* Binding+CardField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CED15529140B4D00DD7358 /* Binding+CardField.swift */; };
+		05D055B5291902B300F70A82 /* WillDisappearHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055B4291902B300F70A82 /* WillDisappearHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		05CED150291147BB00DD7358 /* EditCardAuthFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardAuthFieldView.swift; sourceTree = "<group>"; };
 		05CED152291148C700DD7358 /* CardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardField.swift; sourceTree = "<group>"; };
 		05CED15529140B4D00DD7358 /* Binding+CardField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+CardField.swift"; sourceTree = "<group>"; };
+		05D055B4291902B300F70A82 /* WillDisappearHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillDisappearHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				05C3151D290EE0E900D17396 /* DynamicFetchRequestView.swift */,
+				05D055B4291902B300F70A82 /* WillDisappearHandler.swift */,
 				05C3151F290EE2E100D17396 /* CardIcon.swift */,
 				05C3151A290ECF9000D17396 /* AsyncImage.swift */,
 			);
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D055B5291902B300F70A82 /* WillDisappearHandler.swift in Sources */,
 				05CED15629140B4D00DD7358 /* Binding+CardField.swift in Sources */,
 				05CED151291147BB00DD7358 /* EditCardAuthFieldView.swift in Sources */,
 				05CED14C291129AF00DD7358 /* EditCardViewModel.swift in Sources */,

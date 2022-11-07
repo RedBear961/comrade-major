@@ -11,6 +11,10 @@ struct CardView: View {
     
     @ObservedObject var viewModel: CardViewModel
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @State var isShowingSheet = false
+    
     var body: some View {
         ScrollView() {
             CardHeaderFieldView(card: viewModel.card)
@@ -77,6 +81,16 @@ struct CardView: View {
             }
         }
         .navigationTitle("Веб-аккаунт")
+        .toolbar {
+            Button(action: { isShowingSheet.toggle() }) {
+                Image(systemName: "rectangle.and.pencil.and.ellipsis")
+            }
+            .sheet(isPresented: $isShowingSheet) {
+                EditCardView(
+                    viewModel: EditCardViewModel(card: viewModel.card, managedObjectContext: managedObjectContext)
+                ).environment(\.managedObjectContext, managedObjectContext)
+            }
+        }
     }
 }
 

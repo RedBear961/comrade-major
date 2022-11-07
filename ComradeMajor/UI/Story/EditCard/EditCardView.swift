@@ -15,11 +15,13 @@ struct EditCardView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
+    @State var isSaveButtonPressed: Bool = false
+    
     var body: some View {
         List {
             EditCardHeaderFieldView(card: $viewModel.card, theme: $viewModel.theme)
           
-            ForEach($viewModel.card.fieldsArray) { field in
+            ForEach($viewModel.card.fieldsArray, id: \.self) { field in
                 switch field.wrappedValue {
                 case is CardAuthField:
                     EditCardAuthFieldView(field: Binding(field: field))
@@ -35,6 +37,7 @@ struct EditCardView: View {
             Section {
                 VStack(alignment: .center) {
                     Button {
+                        isSaveButtonPressed.toggle()
                         try? managedObjectContext.save()
                         dismiss()
                     } label: {
@@ -50,6 +53,12 @@ struct EditCardView: View {
         }
         .navigationTitle("Новая карточка")
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear {}
+        .onWillDisappear {
+            if !isSaveButtonPressed {
+                managedObjectContext.rollback()
+            }
+        }
     }
 }
 

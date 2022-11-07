@@ -19,8 +19,10 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             DynamicFetchRequestView(with: searchText) { cards in
-                List(cards, id: \.id) { card in
-                    NavigationLink(destination: CardView(viewModel: CardViewModel(card: card))) {
+                List(cards, id: \.self) { card in
+                    NavigationLink(
+                        destination: CardView(viewModel: CardViewModel(card: card)).environment(\.managedObjectContext, managedObjectContext)
+                    ) {
                         HStack {
                             CardIcon(domain: card.domain, size: 32)
                             

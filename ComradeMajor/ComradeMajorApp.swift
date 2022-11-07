@@ -20,6 +20,8 @@ struct ComradeMajorApp: App {
                 // You should add your own error handling code here.
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            
+            container.viewContext.undoManager = UndoManager()
         }
         
         return container
