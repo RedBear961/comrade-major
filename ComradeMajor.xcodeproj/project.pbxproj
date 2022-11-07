@@ -40,6 +40,8 @@
 		05D055BE2919086300F70A82 /* Card.Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055BD2919086300F70A82 /* Card.Login.swift */; };
 		05D055C0291908AA00F70A82 /* Card.Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055BF291908AA00F70A82 /* Card.Password.swift */; };
 		05D055C229190B5800F70A82 /* PreviewContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055C129190B5800F70A82 /* PreviewContentProvider.swift */; };
+		05D055C429190C3900F70A82 /* Card.Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055C329190C3900F70A82 /* Card.Detail.swift */; };
+		05D055C629190CA500F70A82 /* Card.Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055C529190CA500F70A82 /* Card.Auth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		05D055BD2919086300F70A82 /* Card.Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.Login.swift; sourceTree = "<group>"; };
 		05D055BF291908AA00F70A82 /* Card.Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.Password.swift; sourceTree = "<group>"; };
 		05D055C129190B5800F70A82 /* PreviewContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContentProvider.swift; sourceTree = "<group>"; };
+		05D055C329190C3900F70A82 /* Card.Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.Detail.swift; sourceTree = "<group>"; };
+		05D055C529190CA500F70A82 /* Card.Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.Auth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +218,8 @@
 				05D055BB2919081D00F70A82 /* Card.Header.swift */,
 				05D055BD2919086300F70A82 /* Card.Login.swift */,
 				05D055BF291908AA00F70A82 /* Card.Password.swift */,
+				05D055C329190C3900F70A82 /* Card.Detail.swift */,
+				05D055C529190CA500F70A82 /* Card.Auth.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -382,10 +388,12 @@
 				05CED12C290EE36400DD7358 /* Home.ViewModel.swift in Sources */,
 				05CED1352910435400DD7358 /* EditCardView.swift in Sources */,
 				056C7B4C2902D1D6001A6A2C /* FontSet.swift in Sources */,
+				05D055C629190CA500F70A82 /* Card.Auth.swift in Sources */,
 				056C7B582902D501001A6A2C /* HomeView.swift in Sources */,
 				05CED153291148C700DD7358 /* CardField.swift in Sources */,
 				05D055BC2919081D00F70A82 /* Card.Header.swift in Sources */,
 				05D055BA291906B500F70A82 /* String+asPassword.swift in Sources */,
+				05D055C429190C3900F70A82 /* Card.Detail.swift in Sources */,
 				05CED1302910405A00DD7358 /* Image+init.swift in Sources */,
 				05D055B7291904A100F70A82 /* RoundedBackground.swift in Sources */,
 				056C7B362902CA5D001A6A2C /* ComradeMajorApp.swift in Sources */,
