@@ -9,43 +9,45 @@ import SwiftUI
 import CoreData
 
 @main
-struct ComradeMajorApp: App {
+public struct ComradeMajorApp: App {
     
-    @Environment(\.scenePhase) var scenePhase
-    
-    let persistentContainer: NSPersistentContainer = {
+    public let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ComradeMajor")
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 // You should add your own error handling code here.
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            
+            container.viewContext.undoManager = UndoManager()
         }
         
         return container
     }()
     
-    var context: NSManagedObjectContext {
+    public var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
-    var body: some Scene {
+    public var body: some Scene {
         WindowGroup {
             TabView {
-                HomeView(viewModel: HomeViewModel())
+                // Основной экран со списком всех карточек.
+                HomeView(viewModel: HomeViewModel(managedObjectContext: context))
                     .environment(\.managedObjectContext, context)
                     .tabItem {
                         Label("Главная", image: "tab_main_icon")
                             .foregroundColor(.cBlue)
                     }
                 
+                // Экран со списком шаблонов карточек.
                 TemplatesView()
                     .tabItem {
                         Label("Шаблоны", image: "tab_templates_icon")
                             .foregroundColor(.cBlue)
                     }
                 
-                
+                // Экран настроек.
                 SettingsView()
                     .tabItem {
                         Label("Настройки", image: "tab_settings_icon")
@@ -53,16 +55,13 @@ struct ComradeMajorApp: App {
                     }
             }
         }
-        .onChange(of: scenePhase) { phase in
-            if phase == .background {
-                saveContext()
-            }
-        }
     }
+    
+    public init() {}
     
     // MARK: - Core Data Saving support
     
-    func saveContext() {
+    public func saveContext() {
         if context.hasChanges {
             try! context.save()
         }

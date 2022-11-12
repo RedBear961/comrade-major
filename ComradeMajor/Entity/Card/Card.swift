@@ -8,9 +8,29 @@
 import CoreData
 import Foundation
 import SwiftUI
+import KeychainAccess
 
 @objc(Card)
 public class Card: NSManagedObject, Identifiable {
+    
+    @objc public enum Template: Int32, CaseIterable, Identifiable {
+        
+        case account
+        case bankCard
+        case bankAccount
+        
+        public var asText: String {
+            switch self {
+            case .account:      return "Веб-аккаунт"
+            case .bankCard:     return "Банковская карта"
+            case .bankAccount:  return "Банковский счет"
+            }
+        }
+        
+        public var id: String {
+            return self.asText
+        }
+    }
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Card> {
         return NSFetchRequest<Card>(entityName: "Card")
@@ -20,67 +40,44 @@ public class Card: NSManagedObject, Identifiable {
     @NSManaged public var id: UUID
     @NSManaged public var title: String
     @NSManaged public var detail: String
-    @NSManaged public var fields: NSOrderedSet
+    @NSManaged public var template: Template
     
-    public var fieldsArray: [CardField] {
-        get { self.fields.array as! [CardField] }
-        set { self.fields = NSOrderedSet(array: newValue) }
+    // MARK: - Override
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        self.id = UUID()
     }
 }
 
-final class PreviewContentProvider {
+@objc(AccountCard)
+public class AccountCard: Card {
     
-    private static var _instance: PreviewContentProvider?
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<AccountCard> {
+        return NSFetchRequest<AccountCard>(entityName: "AccountCard")
+    }
     
-    static func shared() -> PreviewContentProvider {
-        if let _instance {
-            return _instance
+    @NSManaged public var login: String
+    @Published public var password: String = "" {
+        willSet {
+            objectWillChange.send()
+            try! Keychain.shared.set(password, key: id.uuidString)
         }
-        
-        let instance = PreviewContentProvider()
-        _instance = instance
-        return instance
     }
     
-    let container: NSPersistentContainer
+    // MARK: - Override
     
-    var context: NSManagedObjectContext {
-        return container.viewContext
+    public override func awakeFromFetch() {
+        super.awakeFromFetch()
+        self.password = (try? Keychain.shared.get(id.uuidString)) ?? ""
     }
     
-    private init() {
-        self.container = NSPersistentContainer(name: "ComradeMajor")
-        self.container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        self.template = .account
     }
     
-    lazy var card: Card = {
-        let card = Card(context: context)
-        card.title = "Yandex"
-        card.domain = "yandex.ru"
-        
-        let field = CardAuthField(context: context)
-        field.id = UUID()
-        field.card = card
-        
-        card.fields = [field]
-        
-        return card
-    }()
-    
-    lazy var fullCard: Card = {
-        let card = Card(context: context)
-        card.title = "Yandex"
-        card.domain = "yandex.ru"
-        card.detail = "Идейные соображения высшего порядка, а также новая модель организационной деятельности обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации."
-        
-        let field = CardAuthField(context: context)
-        field.id = UUID()
-        field.login = "i@gcheremnykh.ru"
-        field.password = "uE@urn9!2"
-        field.card = card
-        
-        card.fields = [field]
-        
-        return card
-    }()
+    public override func prepareForDeletion() {
+        try! Keychain.shared.remove(id.uuidString)
+    }
 }

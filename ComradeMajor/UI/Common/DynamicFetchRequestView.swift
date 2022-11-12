@@ -8,17 +8,17 @@
 import SwiftUI
 import CoreData
 
-struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
+public struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
     
     @FetchRequest var fetchRequest: FetchedResults<T>
     
-    let content: (FetchedResults<T>) -> Content
+    public let content: (FetchedResults<T>) -> Content
 
-    var body: some View {
+    public var body: some View {
         self.content(fetchRequest)
     }
 
-    init(
+    public init(
         with predicate: NSPredicate?,
         sortDescriptors: [NSSortDescriptor] = [],
         @ViewBuilder content: @escaping (FetchedResults<T>) -> Content
@@ -33,7 +33,7 @@ struct DynamicFetchRequestView<T: NSManagedObject, Content: View>: View {
 
 extension DynamicFetchRequestView where T: Card {
 
-    init(
+    public init(
         with searchText: String,
         @ViewBuilder content: @escaping (FetchedResults<T>) -> Content
     ) {

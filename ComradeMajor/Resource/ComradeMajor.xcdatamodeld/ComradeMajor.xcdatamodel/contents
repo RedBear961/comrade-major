@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Card" representedClassName="Card" syncable="YES">
+    <entity name="AccountCard" representedClassName="AccountCard" parentEntity="Card" syncable="YES">
+        <attribute name="login" attributeType="String" defaultValueString=""/>
+    </entity>
+    <entity name="Card" representedClassName="Card" isAbstract="YES" syncable="YES">
         <attribute name="detail" attributeType="String" defaultValueString=""/>
         <attribute name="domain" attributeType="String" defaultValueString=""/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="template" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="fields" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CardField" inverseName="card" inverseEntity="CardField"/>
-    </entity>
-    <entity name="CardAuthField" representedClassName="CardAuthField" parentEntity="CardField" syncable="YES">
-        <attribute name="login" attributeType="String" defaultValueString=""/>
-        <attribute name="password" attributeType="String" defaultValueString=""/>
-        <userInfo>
-            <entry key="category" value="0"/>
-        </userInfo>
-    </entity>
-    <entity name="CardField" representedClassName="CardField" isAbstract="YES" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="card" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="fields" inverseEntity="Card"/>
     </entity>
 </model>
