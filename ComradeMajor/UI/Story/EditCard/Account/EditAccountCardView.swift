@@ -1,26 +1,25 @@
 //
-//  AccountCardView.swift
+//  EditAccountCardView.swift
 //  ComradeMajor
 //
 //  Created by Георгий Черемных on 01.11.2022.
 //
 
 import SwiftUI
+import CoreData
 
-extension EditCardView {
+public struct EditAccountCardView: View {
     
-    public struct AuthFieldView: View {
-        
-        @Binding public var card: AccountCard
-        @ObservedObject public var viewModel: EditCardViewModel
-        
-        public var body: some View {
+    @ObservedObject public var viewModel: EditAccountCardViewModel
+    
+    public var body: some View {
+        EditCardListView(viewModel: viewModel) {
             Section(header: Text("Данные входа")) {
-                TextField("Логин", text: $card.login)
+                TextField("Логин", text: $viewModel.card.login)
                     .keyboardType(.emailAddress)
                 VStack(alignment: .leading) {
                     HStack {
-                        TextField("Пароль", text: $card.password)
+                        TextField("Пароль", text: $viewModel.card.password)
                         Spacer()
                         Button(action: {
                             
@@ -34,13 +33,16 @@ extension EditCardView {
     }
 }
 
-struct EditCardAuthField_Previews: PreviewProvider {
+struct EditAccountCardView_Provider: PreviewProvider {
 
     @State static var card = PreviewContentProvider.shared().accountCard
 
     static var previews: some View {
-        List {
-            EditCardView.AuthFieldView(card: $card, viewModel: EditCardViewModel(card: card, managedObjectContext: PreviewContentProvider.shared().context))
-        }
+        EditAccountCardView(
+            viewModel: EditAccountCardViewModel(
+                card: card
+            )
+        )
+        .previewDevice("iPhone 12 mini")
     }
 }

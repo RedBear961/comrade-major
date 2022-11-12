@@ -9,26 +9,15 @@ import SwiftUI
 import Combine
 import CoreData
 
-public final class EditCardViewModel: ObservableObject {
+open class EditCardViewModel<Model: Card>: ObservableObject {
     
-    @Published public var card: Card
+    @Published public var card: Model
     @Published public var theme: Color
-    @Published public var entropy: PasswordEntropy.AnalyzeResult
     
-    private var managedObjectContext: NSManagedObjectContext
+    @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
     
-    private var subscriptions = Set<AnyCancellable>()
-    
-    public init(card: Card, managedObjectContext: NSManagedObjectContext) {
-        self.managedObjectContext = managedObjectContext
+    public init(card: Model) {
         self.card = card
         self.theme = .red
-        self.entropy = PasswordEntropy().analyze((card as! AccountCard).password)
-        
-        $card
-            .compactMap { $0 as? AccountCard }
-            .receive(on: DispatchQueue.main)
-            .sink { self.entropy = PasswordEntropy().analyze($0.password) }
-            .store(in: &subscriptions)
     }
 }

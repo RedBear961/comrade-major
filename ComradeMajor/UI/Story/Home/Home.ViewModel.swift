@@ -20,22 +20,20 @@ public final class HomeViewModel: ObservableObject {
     }
     
     func editView() -> some View {
-        let card: Card
         switch template {
         case .account:
-            card = AccountCard(context: managedObjectContext)
+            return editAccountView()
         case .bankCard:
-            card = AccountCard(context: managedObjectContext)
+            return editAccountView()
         case .bankAccount:
-            card = AccountCard(context: managedObjectContext)
+            return editAccountView()
         }
-
-        let viewModel = EditCardViewModel(
-            card: card,
-            managedObjectContext: managedObjectContext
-        )
-        return EditCardView(viewModel: viewModel)
-            .environment(\.managedObjectContext, managedObjectContext)
+    }
+    
+    func editAccountView() -> some View {
+        let card = AccountCard(context: managedObjectContext)
+        let viewModel = EditAccountCardViewModel(card: card)
+        return EditAccountCardView(viewModel: viewModel)
     }
     
     func delete(_ indexSet: IndexSet, from cards: [Card]) {

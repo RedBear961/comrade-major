@@ -1,5 +1,5 @@
 //
-//  HeaderFieldView.swift
+//  EditCard.Header.swift
 //  ComradeMajor
 //
 //  Created by Георгий Черемных on 01.11.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension EditCardView {
+extension EditCardListView {
     
     public struct HeaderFieldView<T: Card>: View {
         
@@ -38,7 +38,7 @@ struct EditCardHeaderField_Previews: PreviewProvider {
 
     static var previews: some View {
         List {
-            EditCardView.HeaderFieldView(card: $card, theme: $theme)
+            EditCardListView<AnyView, AccountCard>.HeaderFieldView(card: $card, theme: $theme)
         }
     }
 }

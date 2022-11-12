@@ -49,6 +49,13 @@ public class PasswordEntropy {
     ]
     
     public func analyze(_ password: String) -> AnalyzeResult {
+        guard !password.isEmpty else {
+            return AnalyzeResult(
+                time: "мгновенно",
+                entropy: .veryWeak
+            )
+        }
+        
         var poolSize: Double = 0
         let count = Double(password.count)
         
