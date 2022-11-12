@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-extension Binding where Value: CardField {
+extension Binding where Value: Card {
     
-    init(field: Binding<CardField>) {
+    init(card: Binding<Card>) {
         self.init(get: {
-            field.wrappedValue as! Value
+            card.wrappedValue as! Value
         }, set: {
-            field.wrappedValue = $0
+            card.wrappedValue = $0
         })
     }
 }

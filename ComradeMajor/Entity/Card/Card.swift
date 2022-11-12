@@ -8,6 +8,7 @@
 import CoreData
 import Foundation
 import SwiftUI
+import KeychainAccess
 
 @objc(Card)
 public class Card: NSManagedObject, Identifiable {
@@ -39,11 +40,44 @@ public class Card: NSManagedObject, Identifiable {
     @NSManaged public var id: UUID
     @NSManaged public var title: String
     @NSManaged public var detail: String
-    @NSManaged public var fields: NSOrderedSet
     @NSManaged public var template: Template
     
-    public var fieldsArray: [CardField] {
-        get { self.fields.array as! [CardField] }
-        set { self.fields = NSOrderedSet(array: newValue) }
+    // MARK: - Override
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        self.id = UUID()
+    }
+}
+
+@objc(AccountCard)
+public class AccountCard: Card {
+    
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<AccountCard> {
+        return NSFetchRequest<AccountCard>(entityName: "AccountCard")
+    }
+    
+    @NSManaged public var login: String
+    @Published public var password: String = "" {
+        willSet {
+            objectWillChange.send()
+            try! Keychain.shared.set(password, key: id.uuidString)
+        }
+    }
+    
+    // MARK: - Override
+    
+    public override func awakeFromFetch() {
+        super.awakeFromFetch()
+        self.password = (try? Keychain.shared.get(id.uuidString)) ?? ""
+    }
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        self.template = .account
+    }
+    
+    public override func prepareForDeletion() {
+        try! Keychain.shared.remove(id.uuidString)
     }
 }

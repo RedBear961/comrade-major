@@ -22,16 +22,11 @@ public struct CardView: View {
             Spacer()
                 .frame(height: 16)
             
-            ForEach(viewModel.card.fieldsArray) { field in
-                switch field {
-                case let field as CardAuthField:
-                    AuthFieldView(viewModel: viewModel, field: field)
-                default:
-                    preconditionFailure("Неизвестный тип поля")
-                }
-                
-                Spacer()
-                    .frame(height: 16)
+            switch viewModel.card {
+            case let card as AccountCard:
+                AccountCardView(viewModel: viewModel, card: card)
+            default:
+                preconditionFailure("Неизвестный тип поля")
             }
             
             CardDetailView(detail: viewModel.card.detail)
@@ -51,9 +46,9 @@ public struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-    
-    @State static var card = PreviewContentProvider.shared().fullCard
-    
+
+    @State static var card = PreviewContentProvider.shared().fullAccountCard
+
     static var previews: some View {
         CardView(viewModel: CardViewModel(card: card))
             .previewDevice("iPhone 12 mini")

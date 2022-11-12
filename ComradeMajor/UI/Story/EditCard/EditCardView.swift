@@ -24,14 +24,12 @@ public struct EditCardView: View {
             HeaderFieldView(card: $viewModel.card, theme: $viewModel.theme)
           
             // Набор всех полей карточки.
-            ForEach($viewModel.card.fieldsArray, id: \.self) { field in
-                switch field.wrappedValue {
-                case is CardAuthField:
-                    // Поле логина и пароля.
-                    AuthFieldView(field: Binding(field: field))
-                default:
-                    preconditionFailure("Неизвестный тип поля")
-                }
+            switch viewModel.card {
+            case is AccountCard:
+                // Поле логина и пароля.
+                AuthFieldView(card: Binding(card: $viewModel.card), viewModel: viewModel)
+            default:
+                preconditionFailure("Неизвестный тип поля")
             }
             
             // Подробности о карточке.
@@ -66,7 +64,7 @@ public struct EditCardView: View {
 
 struct EditAccountCardView_Provider: PreviewProvider {
 
-    @State static var card = PreviewContentProvider.shared().card
+    @State static var card = PreviewContentProvider.shared().accountCard
 
     static var previews: some View {
         EditCardView(

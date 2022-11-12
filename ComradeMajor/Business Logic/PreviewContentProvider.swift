@@ -32,33 +32,21 @@ final class PreviewContentProvider {
         self.container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
     }
     
-    lazy var card: Card = {
-        let card = Card(context: context)
+    lazy var accountCard: AccountCard = {
+        let card = AccountCard(context: context)
+        
         card.title = "Yandex"
         card.domain = "yandex.ru"
-        
-        let field = CardAuthField(context: context)
-        field.id = UUID()
-        field.card = card
-        
-        card.fields = [field]
         
         return card
     }()
     
-    lazy var fullCard: Card = {
-        let card = Card(context: context)
-        card.title = "Yandex"
-        card.domain = "yandex.ru"
-        card.detail = "Идейные соображения высшего порядка, а также новая модель организационной деятельности обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации."
+    lazy var fullAccountCard: AccountCard = {
+        let card = accountCard
         
-        let field = CardAuthField(context: context)
-        field.id = UUID()
-        field.login = "i@gcheremnykh.ru"
-        field.password = "uE@urn9!2"
-        field.card = card
-        
-        card.fields = [field]
+        card.detail = "Современные технологии достигли такого уровня, что консультация с широким активом выявляет срочную потребность вывода текущих активов."
+        card.login = "i@gcheremnykh.ru"
+        card.password = "uE@urn9!2"
         
         return card
     }()

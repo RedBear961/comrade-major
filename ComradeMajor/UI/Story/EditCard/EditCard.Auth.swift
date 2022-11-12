@@ -1,5 +1,5 @@
 //
-//  AuthFieldView.swift
+//  AccountCardView.swift
 //  ComradeMajor
 //
 //  Created by Георгий Черемных on 01.11.2022.
@@ -11,18 +11,23 @@ extension EditCardView {
     
     public struct AuthFieldView: View {
         
-        @Binding public var field: CardAuthField
+        @Binding public var card: AccountCard
+        @ObservedObject public var viewModel: EditCardViewModel
         
         public var body: some View {
             Section(header: Text("Данные входа")) {
-                TextField("Логин", text: $field.login)
+                TextField("Логин", text: $card.login)
                     .keyboardType(.emailAddress)
-                HStack {
-                    TextField("Пароль", text: $field.password)
-                    Spacer()
-                    Button(action: {
-                        
-                    }, label: { Image(systemName: "key") })
+                VStack(alignment: .leading) {
+                    HStack {
+                        TextField("Пароль", text: $card.password)
+                        Spacer()
+                        Button(action: {
+                            
+                        }, label: { Image(systemName: "key") })
+                    }
+                    Text("Время взлома: \(viewModel.entropy.time)")
+                        .fRegular(.body)
                 }
             }.autocorrectionDisabled()
         }
@@ -30,12 +35,12 @@ extension EditCardView {
 }
 
 struct EditCardAuthField_Previews: PreviewProvider {
-    
-    @State static var field = PreviewContentProvider.shared().card.fields.array.first as! CardAuthField
-    
+
+    @State static var card = PreviewContentProvider.shared().accountCard
+
     static var previews: some View {
         List {
-            EditCardView.AuthFieldView(field: $field)
+            EditCardView.AuthFieldView(card: $card, viewModel: EditCardViewModel(card: card, managedObjectContext: PreviewContentProvider.shared().context))
         }
     }
 }

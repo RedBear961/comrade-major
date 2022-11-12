@@ -23,11 +23,11 @@ public final class HomeViewModel: ObservableObject {
         let card: Card
         switch template {
         case .account:
-            card = accountCard()
+            card = AccountCard(context: managedObjectContext)
         case .bankCard:
-            card = accountCard()
+            card = AccountCard(context: managedObjectContext)
         case .bankAccount:
-            card = accountCard()
+            card = AccountCard(context: managedObjectContext)
         }
 
         let viewModel = EditCardViewModel(
@@ -46,20 +46,5 @@ public final class HomeViewModel: ObservableObject {
             
             try? self.managedObjectContext.save()
         }
-    }
-    
-    // MARK: -
-    
-    func accountCard() -> Card {
-        let authField = CardAuthField(context: managedObjectContext)
-        authField.id = UUID()
-        
-        let card = Card(context: managedObjectContext)
-        card.id = UUID()
-        card.fields = [authField]
-        card.template = .account
-        authField.card = card
-        
-        return card
     }
 }

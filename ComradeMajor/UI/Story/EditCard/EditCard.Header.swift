@@ -9,9 +9,9 @@ import SwiftUI
 
 extension EditCardView {
     
-    public struct HeaderFieldView: View {
+    public struct HeaderFieldView<T: Card>: View {
         
-        @Binding public var card: Card
+        @Binding public var card: T
         @Binding public var theme: Color
         
         public var body: some View {
@@ -33,7 +33,7 @@ extension EditCardView {
 
 struct EditCardHeaderField_Previews: PreviewProvider {
 
-    @State static var card = PreviewContentProvider.shared().card
+    @State static var card = PreviewContentProvider.shared().accountCard
     @State static var theme: Color = .red
 
     static var previews: some View {

@@ -9,22 +9,22 @@ import SwiftUI
 
 extension CardView {
     
-    struct AuthFieldView: View {
+    struct AccountCardView: View {
         
         let viewModel: CardViewModel
-        let field: CardAuthField
+        let card: AccountCard
         
         var body: some View {
             RoundedBackground {
                 VStack {
-                    LoginFieldView(viewModel: viewModel, login: field.login)
+                    LoginFieldView(viewModel: viewModel, login: card.login)
                     
                     Rectangle()
                         .foregroundColor(.cSeparator)
                         .frame(height: 0.5)
                         .padding(.leading, 16)
                     
-                    PasswordFieldView(viewModel: viewModel, password: field.password)
+                    PasswordFieldView(viewModel: viewModel, password: card.password)
                     
                     Rectangle()
                         .foregroundColor(.cSeparator)
