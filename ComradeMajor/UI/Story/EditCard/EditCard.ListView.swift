@@ -37,12 +37,12 @@ public struct EditCardListView<Content, Model>: View where Content: View, Model:
                 VStack(alignment: .center) {
                     Button() {
                         isSaveButtonPressed.toggle()
-                        try? managedObjectContext.save()
-                        dismiss()
+                        viewModel.onSave()
                     } label: {
                         Text("Сохранить")
                             .fMedium(.title2)
-                    }.buttonStyle(.borderedProminent)
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -52,6 +52,11 @@ public struct EditCardListView<Content, Model>: View where Content: View, Model:
         .onWillDisappear {
             if !isSaveButtonPressed {
                 managedObjectContext.rollback()
+            }
+        }
+        .onReceive(viewModel.didDismissSubject) { isDismiss in
+            if isDismiss {
+                dismiss()
             }
         }
     }

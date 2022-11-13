@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import Combine
 
 public struct EditAccountCardView: View {
     
@@ -17,9 +18,12 @@ public struct EditAccountCardView: View {
             Section(header: Text("Данные входа")) {
                 TextField("Логин", text: $viewModel.card.login)
                     .keyboardType(.emailAddress)
+                
                 VStack(alignment: .leading) {
                     HStack {
                         TextField("Пароль", text: $viewModel.card.password)
+                            .filteredText($viewModel.card.password, allowed: .password)
+            
                         Spacer()
                         Button(action: {
                             
@@ -28,7 +32,9 @@ public struct EditAccountCardView: View {
                     Text("Время взлома: \(viewModel.entropy.time)")
                         .fRegular(.body)
                 }
-            }.autocorrectionDisabled()
+            }
+            .autocorrectionDisabled()
+            .textInputAutocapitalization(.never)
         }
     }
 }

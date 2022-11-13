@@ -23,4 +23,8 @@ public final class EditAccountCardViewModel: EditCardViewModel<AccountCard> {
             .sink { self.entropy = PasswordEntropy().analyze($0.password) }
             .store(in: &subscriptions)
     }
+    
+    public override func onSave() {
+        super.onSave()
+    }
 }

@@ -49,13 +49,6 @@ public class PasswordEntropy {
     ]
     
     public func analyze(_ password: String) -> AnalyzeResult {
-        guard !password.isEmpty else {
-            return AnalyzeResult(
-                time: "мгновенно",
-                entropy: .veryWeak
-            )
-        }
-        
         var poolSize: Double = 0
         let count = Double(password.count)
         
@@ -63,6 +56,13 @@ public class PasswordEntropy {
             if let _ = password.rangeOfCharacter(from: CharacterSet(charactersIn: characterSet)) {
                 poolSize += Double(characterSet.count)
             }
+        }
+        
+        guard !password.isEmpty, poolSize > 0 else {
+            return AnalyzeResult(
+                time: "мгновенно",
+                entropy: .veryWeak
+            )
         }
         
         let bitsOfEntropy = log2(poolSize) * count
