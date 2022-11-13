@@ -1,5 +1,5 @@
 //
-//  Card.Password.swift
+//  AccountCard.Password.swift
 //  ComradeMajor
 //
 //  Created by Георгий Черемных on 07.11.2022.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-extension CardView {
+extension AccountCardView {
     
     struct PasswordFieldView: View {
         
-        let viewModel: CardViewModel
+        let viewModel: AccountCardViewModel
         let password: String
         
         var body: some View {

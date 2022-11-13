@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension CardView {
+extension CardScrollView {
     
     struct HeaderFieldView: View {
         

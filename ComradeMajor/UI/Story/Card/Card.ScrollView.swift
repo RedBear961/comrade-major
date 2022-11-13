@@ -1,5 +1,5 @@
 //
-//  CardView.swift
+//  Card.ScrollView.swift
 //  ComradeMajor
 //
 //  Created by Георгий Черемных on 22.10.2022.
@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-public struct CardView: View {
+public struct CardScrollView<Content, Model>: View where Content: View, Model: Card {
     
-    @ObservedObject public var viewModel: CardViewModel
+    @ObservedObject public var viewModel: CardViewModel<Model>
     
     @Environment(\.managedObjectContext) private var managedObjectContext
     
     @State private var isShowingSheet = false
+    
+    private let content: () -> Content
     
     public var body: some View {
         ScrollView() {
@@ -22,12 +24,10 @@ public struct CardView: View {
             Spacer()
                 .frame(height: 16)
             
-            switch viewModel.card {
-            case let card as AccountCard:
-                AccountCardView(viewModel: viewModel, card: card)
-            default:
-                preconditionFailure("Неизвестный тип поля")
-            }
+            content()
+            
+            Spacer()
+                .frame(height: 16)
             
             CardDetailView(detail: viewModel.card.detail)
         }
@@ -41,14 +41,12 @@ public struct CardView: View {
             }
         }
     }
-}
-
-struct CardView_Previews: PreviewProvider {
-
-    @State static var card = PreviewContentProvider.shared().fullAccountCard
-
-    static var previews: some View {
-        CardView(viewModel: CardViewModel(card: card))
-            .previewDevice("iPhone 12 mini")
+    
+    init(
+        viewModel: CardViewModel<Model>,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.viewModel = viewModel
+        self.content = content
     }
 }

@@ -19,6 +19,16 @@ public final class HomeViewModel: ObservableObject {
         self.managedObjectContext = managedObjectContext
     }
     
+    func cardView(with card: Card) -> some View {
+        switch card {
+        case let card as AccountCard:
+            let viewModel = AccountCardViewModel(card: card)
+            return AccountCardView(viewModel: viewModel)
+        default:
+            preconditionFailure("Неизвестный тип карточки \(card.self)")
+        }
+    }
+    
     func editView() -> some View {
         switch template {
         case .account:
