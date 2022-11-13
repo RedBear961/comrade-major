@@ -1,30 +1,28 @@
 //
-//  Card.Auth.swift
+//  AccountCardView.swift
 //  ComradeMajor
 //
-//  Created by Георгий Черемных on 07.11.2022.
+//  Created by Георгий Черемных on 13.11.2022.
 //
 
 import SwiftUI
 
-extension CardView {
+public struct AccountCardView: View {
     
-    struct AccountCardView: View {
-        
-        let viewModel: CardViewModel
-        let card: AccountCard
-        
-        var body: some View {
+    @ObservedObject public var viewModel: AccountCardViewModel
+    
+    public var body: some View {
+        CardScrollView(viewModel: viewModel) {
             RoundedBackground {
                 VStack {
-                    LoginFieldView(viewModel: viewModel, login: card.login)
+                    LoginFieldView(viewModel: viewModel, login: viewModel.card.login)
                     
                     Rectangle()
                         .foregroundColor(.cSeparator)
                         .frame(height: 0.5)
                         .padding(.leading, 16)
                     
-                    PasswordFieldView(viewModel: viewModel, password: card.password)
+                    PasswordFieldView(viewModel: viewModel, password: viewModel.card.password)
                     
                     Rectangle()
                         .foregroundColor(.cSeparator)
@@ -49,5 +47,19 @@ extension CardView {
                 }
             }
         }
+    }
+}
+
+struct AccountCardView_Previews: PreviewProvider {
+    
+    @State static var card = PreviewContentProvider.shared().fullAccountCard
+
+    static var previews: some View {
+        AccountCardView(
+            viewModel: AccountCardViewModel(
+                card: card
+            )
+        )
+        .previewDevice("iPhone 12 mini")
     }
 }

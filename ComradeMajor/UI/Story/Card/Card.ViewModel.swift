@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-public final class CardViewModel: ObservableObject {
+open class CardViewModel<Model: Card>: ObservableObject {
     
-    @Published public var card: Card
+    @Published public var card: Model
     @Published public var isShowPassword: Bool = false
     
-    public init(card: Card) {
+    public init(card: Model) {
         self.card = card
     }
     
@@ -25,4 +25,8 @@ public final class CardViewModel: ObservableObject {
             preconditionFailure("Неизвестный тип модели \(card.self)")
         }
     }
+}
+
+public final class AccountCardViewModel: CardViewModel<AccountCard> {
+    
 }

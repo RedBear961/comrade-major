@@ -1,5 +1,5 @@
 //
-//  LoginFieldView.swift
+//  AccountCard.Login.swift
 //  ComradeMajor
 //
 //  Created by Георгий Черемных on 07.11.2022.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-extension CardView {
+extension AccountCardView {
     
     struct LoginFieldView: View {
         
-        let viewModel: CardViewModel
+        let viewModel: AccountCardViewModel
         let login: String
         
         var body: some View {
