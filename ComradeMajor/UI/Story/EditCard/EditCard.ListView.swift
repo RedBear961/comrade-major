@@ -1,36 +1,31 @@
 //
-//  EditCardView.swift
+//  EditCard.ListView.swift
 //  ComradeMajor
 //
-//  Created by Георгий Черемных on 01.11.2022.
+//  Created by Георгий Черемных on 12.11.2022.
 //
 
 import SwiftUI
 import CoreData
 
-public struct EditCardView: View {
+public struct EditCardListView<Content, Model>: View where Content: View, Model: Card {
     
-    @ObservedObject public var viewModel: EditCardViewModel
+    @ObservedObject public var viewModel: EditCardViewModel<Model>
     
     @Environment(\.managedObjectContext) private var managedObjectContext
     @Environment(\.dismiss) private var dismiss
     
     // Была ли нажата кнопка сохранение или закрытие происходит другим образом.
     @State private var isSaveButtonPressed: Bool = false
+    private let content: () -> Content
     
     public var body: some View {
         List {
             // Заголовок карточки.
             HeaderFieldView(card: $viewModel.card, theme: $viewModel.theme)
-          
-            // Набор всех полей карточки.
-            switch viewModel.card {
-            case is AccountCard:
-                // Поле логина и пароля.
-                AuthFieldView(card: Binding(card: $viewModel.card), viewModel: viewModel)
-            default:
-                preconditionFailure("Неизвестный тип поля")
-            }
+            
+            // Специфичные для карточки поля.
+            content()
             
             // Подробности о карточке.
             Section(header: Text("Подробности")) {
@@ -42,12 +37,12 @@ public struct EditCardView: View {
                 VStack(alignment: .center) {
                     Button() {
                         isSaveButtonPressed.toggle()
-                        try? managedObjectContext.save()
-                        dismiss()
+                        viewModel.onSave()
                     } label: {
                         Text("Сохранить")
                             .fMedium(.title2)
-                    }.buttonStyle(.borderedProminent)
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -59,20 +54,18 @@ public struct EditCardView: View {
                 managedObjectContext.rollback()
             }
         }
+        .onReceive(viewModel.didDismissSubject) { isDismiss in
+            if isDismiss {
+                dismiss()
+            }
+        }
     }
-}
-
-struct EditAccountCardView_Provider: PreviewProvider {
-
-    @State static var card = PreviewContentProvider.shared().accountCard
-
-    static var previews: some View {
-        EditCardView(
-            viewModel: EditCardViewModel(
-                card: card,
-                managedObjectContext: PreviewContentProvider.shared().context
-            )
-        )
-        .previewDevice("iPhone 12 mini")
+    
+    init(
+        viewModel: EditCardViewModel<Model>,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.viewModel = viewModel
+        self.content = content
     }
 }

@@ -37,9 +37,7 @@ public struct CardView: View {
                 Image(systemName: "rectangle.and.pencil.and.ellipsis")
             }
             .sheet(isPresented: $isShowingSheet) {
-                EditCardView(
-                    viewModel: EditCardViewModel(card: viewModel.card, managedObjectContext: managedObjectContext)
-                ).environment(\.managedObjectContext, managedObjectContext)
+                viewModel.editView()
             }
         }
     }

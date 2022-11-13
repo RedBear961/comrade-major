@@ -58,6 +58,13 @@ public class PasswordEntropy {
             }
         }
         
+        guard !password.isEmpty, poolSize > 0 else {
+            return AnalyzeResult(
+                time: "мгновенно",
+                entropy: .veryWeak
+            )
+        }
+        
         let bitsOfEntropy = log2(poolSize) * count
         let entropy = AnalyzeResult.Entropy(bitsOfEntropy: bitsOfEntropy)
         
