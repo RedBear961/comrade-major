@@ -13,17 +13,18 @@ public final class HomeViewModel: ObservableObject {
     
     @Published var template: Card.Template = .account
     
-    private var managedObjectContext: NSManagedObjectContext
+    var context: NSManagedObjectContext
     
-    init(managedObjectContext: NSManagedObjectContext) {
-        self.managedObjectContext = managedObjectContext
+    init(context: NSManagedObjectContext) {
+        self.context = context
     }
     
     func cardView(with card: Card) -> some View {
         switch card {
         case let card as AccountCard:
-            let viewModel = AccountCardViewModel(card: card)
+            let viewModel = AccountCardViewModel(card: card, context: context)
             return AccountCardView(viewModel: viewModel)
+                .environment(\.managedObjectContext, context)
         default:
             preconditionFailure("Неизвестный тип карточки \(card.self)")
         }
@@ -41,18 +42,18 @@ public final class HomeViewModel: ObservableObject {
     }
     
     func editAccountView() -> some View {
-        let card = AccountCard(context: managedObjectContext)
-        let viewModel = EditAccountCardViewModel(card: card)
+        let card = AccountCard(context: context)
+        let viewModel = EditAccountCardViewModel(card: card, context: context, mode: .new)
         return EditAccountCardView(viewModel: viewModel)
     }
     
     func delete(_ indexSet: IndexSet, from cards: [Card]) {
-        managedObjectContext.perform {
+        context.perform {
             indexSet.forEach { index in
-                self.managedObjectContext.delete(cards[index])
+                self.context.delete(cards[index])
             }
             
-            try? self.managedObjectContext.save()
+            try? self.context.save()
         }
     }
 }

@@ -6,27 +6,27 @@
 //
 
 import SwiftUI
+import CoreData
 
 open class CardViewModel<Model: Card>: ObservableObject {
     
     @Published public var card: Model
-    @Published public var isShowPassword: Bool = false
     
-    public init(card: Model) {
+    var context: NSManagedObjectContext
+    
+    public init(card: Model, context: NSManagedObjectContext) {
         self.card = card
+        self.context = context
     }
     
     func editView() -> some View {
         switch card {
         case let card as AccountCard:
-            let viewModel = EditAccountCardViewModel(card: card)
+            let viewModel = EditAccountCardViewModel(card: card, context: context, mode: .edit)
             return EditAccountCardView(viewModel: viewModel)
+                .environment(\.managedObjectContext, context)
         default:
             preconditionFailure("Неизвестный тип модели \(card.self)")
         }
     }
-}
-
-public final class AccountCardViewModel: CardViewModel<AccountCard> {
-    
 }

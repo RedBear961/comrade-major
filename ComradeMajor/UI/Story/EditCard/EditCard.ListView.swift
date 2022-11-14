@@ -20,44 +20,48 @@ public struct EditCardListView<Content, Model>: View where Content: View, Model:
     private let content: () -> Content
     
     public var body: some View {
-        List {
-            // Заголовок карточки.
-            HeaderFieldView(card: $viewModel.card, theme: $viewModel.theme)
-            
-            // Специфичные для карточки поля.
-            content()
-            
-            // Подробности о карточке.
-            Section(header: Text("Подробности")) {
-                TextEditor(text: $viewModel.card.detail)
-            }
-            
-            // Кнопка сохранить.
-            Section {
-                VStack(alignment: .center) {
-                    Button() {
-                        isSaveButtonPressed.toggle()
-                        viewModel.onSave()
-                    } label: {
-                        Text("Сохранить")
-                            .fMedium(.title2)
+        NavigationView {
+            List {
+                // Заголовок карточки.
+                HeaderFieldView(card: $viewModel.card, theme: $viewModel.theme)
+                
+                // Специфичные для карточки поля.
+                content()
+                
+                // Подробности о карточке.
+                Section(header: Text("Подробности")) {
+                    TextEditor(text: $viewModel.card.detail)
+                }
+                
+                // Кнопка сохранить.
+                Section {
+                    VStack(alignment: .center) {
+                        Button() {
+                            isSaveButtonPressed.toggle()
+                            viewModel.onSave()
+                        } label: {
+                            Text("Сохранить")
+                                .fMedium(.title2)
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
-                    .buttonStyle(.borderedProminent)
+                }
+                .frame(maxWidth: .infinity)
+                .listRowBackground(Color.clear)
+            }
+            .onDisappear {}
+            .onWillDisappear {
+                if !isSaveButtonPressed {
+                    managedObjectContext.rollback()
                 }
             }
-            .frame(maxWidth: .infinity)
-            .listRowBackground(Color.clear)
-        }
-        .onDisappear {}
-        .onWillDisappear {
-            if !isSaveButtonPressed {
-                managedObjectContext.rollback()
+            .onReceive(viewModel.didDismissSubject) { isDismiss in
+                if isDismiss {
+                    dismiss()
+                }
             }
-        }
-        .onReceive(viewModel.didDismissSubject) { isDismiss in
-            if isDismiss {
-                dismiss()
-            }
+            .navigationBarTitle(viewModel.mode.navigationTitle)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     

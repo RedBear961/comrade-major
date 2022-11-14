@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import CoreData
 
 public final class EditAccountCardViewModel: EditCardViewModel<AccountCard> {
     
@@ -14,9 +15,9 @@ public final class EditAccountCardViewModel: EditCardViewModel<AccountCard> {
     
     private var subscriptions = Set<AnyCancellable>()
     
-    public override init(card: AccountCard) {
+    public override init(card: AccountCard, context: NSManagedObjectContext, mode: Mode) {
         self.entropy = PasswordEntropy().analyze(card.password)
-        super.init(card: card)
+        super.init(card: card, context: context, mode: mode)
         
         $card
             .receive(on: DispatchQueue.main)

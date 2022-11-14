@@ -48,6 +48,8 @@
 		05D055D9291FBD7E00F70A82 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055D8291FBD7E00F70A82 /* Constants.swift */; };
 		05D055DB2920F2F100F70A82 /* TextField+filteredText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055DA2920F2F100F70A82 /* TextField+filteredText.swift */; };
 		05D055DE2921026D00F70A82 /* AccountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055DD2921026D00F70A82 /* AccountCardView.swift */; };
+		05D055E1292107BC00F70A82 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 05D055E0292107BC00F70A82 /* AlertToast */; };
+		05D055E329226CAF00F70A82 /* AccountCard.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055E229226CAF00F70A82 /* AccountCard.ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,7 @@
 		05D055D8291FBD7E00F70A82 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		05D055DA2920F2F100F70A82 /* TextField+filteredText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+filteredText.swift"; sourceTree = "<group>"; };
 		05D055DD2921026D00F70A82 /* AccountCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCardView.swift; sourceTree = "<group>"; };
+		05D055E229226CAF00F70A82 /* AccountCard.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCard.ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05D055CC291F8A3200F70A82 /* KeychainAccess in Frameworks */,
+				05D055E1292107BC00F70A82 /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +323,7 @@
 				05D055BD2919086300F70A82 /* AccountCard.Login.swift */,
 				05D055BF291908AA00F70A82 /* AccountCard.Password.swift */,
 				05D055DD2921026D00F70A82 /* AccountCardView.swift */,
+				05D055E229226CAF00F70A82 /* AccountCard.ViewModel.swift */,
 			);
 			path = Accont;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 			name = ComradeMajor;
 			packageProductDependencies = (
 				05D055CB291F8A3200F70A82 /* KeychainAccess */,
+				05D055E0292107BC00F70A82 /* AlertToast */,
 			);
 			productName = ComradeMajor;
 			productReference = 056C7B322902CA5D001A6A2C /* Comrade Major.app */;
@@ -373,6 +379,7 @@
 			mainGroup = 056C7B292902CA5D001A6A2C;
 			packageReferences = (
 				05D055CA291F8A3100F70A82 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				05D055DF292107BC00F70A82 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 056C7B332902CA5D001A6A2C /* Products */;
 			projectDirPath = "";
@@ -426,6 +433,7 @@
 				05D055BE2919086300F70A82 /* AccountCard.Login.swift in Sources */,
 				05CED12C290EE36400DD7358 /* Home.ViewModel.swift in Sources */,
 				05D055D7291FBAE100F70A82 /* EditAccountCard.ViewModel.swift in Sources */,
+				05D055E329226CAF00F70A82 /* AccountCard.ViewModel.swift in Sources */,
 				05CED1352910435400DD7358 /* EditAccountCardView.swift in Sources */,
 				056C7B4C2902D1D6001A6A2C /* FontSet.swift in Sources */,
 				05D055D9291FBD7E00F70A82 /* Constants.swift in Sources */,
@@ -664,6 +672,14 @@
 				kind = branch;
 			};
 		};
+		05D055DF292107BC00F70A82 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -671,6 +687,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 05D055CA291F8A3100F70A82 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		05D055E0292107BC00F70A82 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05D055DF292107BC00F70A82 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 

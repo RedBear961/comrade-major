@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import AlertToast
 
 extension AccountCardView {
     
     struct LoginFieldView: View {
         
         let viewModel: AccountCardViewModel
-        let login: String
+        
+        @State private var isShowToast = false
         
         var body: some View {
             HStack {
@@ -20,16 +22,25 @@ extension AccountCardView {
                     Text("Логин")
                         .fMedium(.title2)
                     
-                    Text(login)
+                    Text(viewModel.card.login)
                         .fRegular(.body)
                 }
                 
                 Spacer()
                 
-                Button(action: {}, label: { Image("copy_icon") })
+                Button(action: {
+                    isShowToast.toggle()
+                    UIPasteboard.general.setValue(
+                        viewModel.card.login,
+                        forPasteboardType: "public.plain-text"
+                    )
+                }, label: { Image("copy_icon") })
             }
             .padding(.top, 12)
             .padding(.horizontal, 16)
+            .toast(isPresenting: $isShowToast) {
+                AlertToast(displayMode: .hud, type: .regular, title: "Скопировано!")
+            }
         }
     }
 }

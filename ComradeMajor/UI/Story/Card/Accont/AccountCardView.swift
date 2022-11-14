@@ -15,14 +15,14 @@ public struct AccountCardView: View {
         CardScrollView(viewModel: viewModel) {
             RoundedBackground {
                 VStack {
-                    LoginFieldView(viewModel: viewModel, login: viewModel.card.login)
+                    LoginFieldView(viewModel: viewModel)
                     
                     Rectangle()
                         .foregroundColor(.cSeparator)
                         .frame(height: 0.5)
                         .padding(.leading, 16)
                     
-                    PasswordFieldView(viewModel: viewModel, password: viewModel.card.password)
+                    PasswordFieldView(viewModel: viewModel)
                     
                     Rectangle()
                         .foregroundColor(.cSeparator)
@@ -40,7 +40,9 @@ public struct AccountCardView: View {
                         
                         Spacer()
                         
-                        Button(action: {}, label: { Image("web_icon") })
+                        Link(destination: URL(string: "https://\(viewModel.card.domain)")!) {
+                            Image("web_icon")
+                        }
                     }
                     .padding(.horizontal, 16)
                     .padding(.bottom, 12)
@@ -57,7 +59,8 @@ struct AccountCardView_Previews: PreviewProvider {
     static var previews: some View {
         AccountCardView(
             viewModel: AccountCardViewModel(
-                card: card
+                card: card,
+                context: PreviewContentProvider.shared().context
             )
         )
         .previewDevice("iPhone 12 mini")

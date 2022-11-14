@@ -11,8 +11,6 @@ public struct HomeView: View {
     
     @StateObject public var viewModel: HomeViewModel
     
-    @Environment(\.managedObjectContext) private var managedObjectContext
-    
     @State private var searchText: String = ""
     @State private var isShowingEditView = false
     
@@ -73,7 +71,8 @@ public struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel(managedObjectContext: PreviewContentProvider.shared().context))
+        HomeView(viewModel: HomeViewModel(context:  PreviewContentProvider.shared().context))
+            .environment(\.managedObjectContext, PreviewContentProvider.shared().context)
             .previewDevice("iPhone 12 mini")
     }
 }

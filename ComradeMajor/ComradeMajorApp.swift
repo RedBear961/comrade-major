@@ -33,7 +33,7 @@ public struct ComradeMajorApp: App {
         WindowGroup {
             TabView {
                 // Основной экран со списком всех карточек.
-                HomeView(viewModel: HomeViewModel(managedObjectContext: context))
+                HomeView(viewModel: HomeViewModel(context: context))
                     .environment(\.managedObjectContext, context)
                     .tabItem {
                         Label("Главная", image: "tab_main_icon")

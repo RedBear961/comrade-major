@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import AlertToast
 
 extension AccountCardView {
     
     struct PasswordFieldView: View {
         
         let viewModel: AccountCardViewModel
-        let password: String
+        
+        @State private var isShowPassword = false
+        @State private var isShowToast = false
         
         var body: some View {
             HStack {
@@ -20,7 +23,7 @@ extension AccountCardView {
                     Text("Пароль")
                         .fMedium(.title2)
                     
-                    Text(viewModel.isShowPassword ? password : password.asPassword)
+                    Text(isShowPassword ? viewModel.card.password : viewModel.card.password.asPassword)
                         .fRegular(.body)
                     
                     HStack(spacing: 2) {
@@ -32,7 +35,7 @@ extension AccountCardView {
                     }
                     .padding(.vertical, 4)
                     
-                    Text("Время взлома пароля: 13 дней")
+                    Text("Время взлома пароля: \(viewModel.entropy.time)")
                         .fRegular(.footnote)
                         .foregroundColor(.secondary)
                 }
@@ -41,19 +44,25 @@ extension AccountCardView {
                 
                 VStack {
                     Spacer()
-                    
-                    Button(action: {}, label: { Image("view_on_icon") })
-                    
+                    Button(action: {
+                        isShowPassword.toggle()
+                    }, label: { Image("view_on_icon") })
                     Spacer()
-                    
-                    Button(action: {}, label: { Image("copy_icon") })
-                    
+                    Button(action: {
+                        isShowToast.toggle()
+                        UIPasteboard.general.setValue(
+                            viewModel.card.password,
+                            forPasteboardType: "public.plain-text"
+                        )
+                    }, label: { Image("copy_icon") })
                     Spacer()
                 }
                 .padding(.leading, 16)
             }
             .padding(.horizontal, 16)
+            .toast(isPresenting: $isShowToast) {
+                AlertToast(displayMode: .hud, type: .regular, title: "Скопировано!")
+            }
         }
     }
-
 }

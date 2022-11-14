@@ -46,7 +46,9 @@ struct EditAccountCardView_Provider: PreviewProvider {
     static var previews: some View {
         EditAccountCardView(
             viewModel: EditAccountCardViewModel(
-                card: card
+                card: card,
+                context: PreviewContentProvider.shared().context,
+                mode: .new
             )
         )
         .previewDevice("iPhone 12 mini")
