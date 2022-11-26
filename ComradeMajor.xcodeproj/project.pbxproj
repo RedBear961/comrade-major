@@ -50,6 +50,12 @@
 		05D055DE2921026D00F70A82 /* AccountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055DD2921026D00F70A82 /* AccountCardView.swift */; };
 		05D055E1292107BC00F70A82 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 05D055E0292107BC00F70A82 /* AlertToast */; };
 		05D055E329226CAF00F70A82 /* AccountCard.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055E229226CAF00F70A82 /* AccountCard.ViewModel.swift */; };
+		05D055E52922710D00F70A82 /* AccountCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055E42922710D00F70A82 /* AccountCard.swift */; };
+		05D055E72922714500F70A82 /* BankCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055E62922714500F70A82 /* BankCard.swift */; };
+		05D055EC292272BE00F70A82 /* BankCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055EB292272BE00F70A82 /* BankCardView.swift */; };
+		05D055EE292272DE00F70A82 /* BankCard.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055ED292272DE00F70A82 /* BankCard.ViewModel.swift */; };
+		05D055F12922754C00F70A82 /* EditBankCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055F02922754C00F70A82 /* EditBankCardView.swift */; };
+		05D055F32922756000F70A82 /* EditBankCard.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D055F22922756000F70A82 /* EditBankCard.ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +102,12 @@
 		05D055DA2920F2F100F70A82 /* TextField+filteredText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+filteredText.swift"; sourceTree = "<group>"; };
 		05D055DD2921026D00F70A82 /* AccountCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCardView.swift; sourceTree = "<group>"; };
 		05D055E229226CAF00F70A82 /* AccountCard.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCard.ViewModel.swift; sourceTree = "<group>"; };
+		05D055E42922710D00F70A82 /* AccountCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCard.swift; sourceTree = "<group>"; };
+		05D055E62922714500F70A82 /* BankCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCard.swift; sourceTree = "<group>"; };
+		05D055EB292272BE00F70A82 /* BankCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCardView.swift; sourceTree = "<group>"; };
+		05D055ED292272DE00F70A82 /* BankCard.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCard.ViewModel.swift; sourceTree = "<group>"; };
+		05D055F02922754C00F70A82 /* EditBankCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBankCardView.swift; sourceTree = "<group>"; };
+		05D055F22922756000F70A82 /* EditBankCard.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBankCard.ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				05D055DC2921022700F70A82 /* Accont */,
+				05D055EA292272AF00F70A82 /* BankCard */,
 				056C7B6B2903D259001A6A2C /* Card.ScrollView.swift */,
 				056C7B72290451A9001A6A2C /* Card.ViewModel.swift */,
 				05D055BB2919081D00F70A82 /* Card.Header.swift */,
@@ -275,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				05D055D5291FBAC100F70A82 /* Account */,
+				05D055EF2922753B00F70A82 /* Bank */,
 				05D055D3291FB96200F70A82 /* EditCard.ListView.swift */,
 				05CED14B291129AF00DD7358 /* EditCard.ViewModel.swift */,
 				05CED14E291144D900DD7358 /* EditCard.Header.swift */,
@@ -286,6 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				05CED1372911185500DD7358 /* Card.swift */,
+				05D055E42922710D00F70A82 /* AccountCard.swift */,
+				05D055E62922714500F70A82 /* BankCard.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -326,6 +342,24 @@
 				05D055E229226CAF00F70A82 /* AccountCard.ViewModel.swift */,
 			);
 			path = Accont;
+			sourceTree = "<group>";
+		};
+		05D055EA292272AF00F70A82 /* BankCard */ = {
+			isa = PBXGroup;
+			children = (
+				05D055EB292272BE00F70A82 /* BankCardView.swift */,
+				05D055ED292272DE00F70A82 /* BankCard.ViewModel.swift */,
+			);
+			path = BankCard;
+			sourceTree = "<group>";
+		};
+		05D055EF2922753B00F70A82 /* Bank */ = {
+			isa = PBXGroup;
+			children = (
+				05D055F02922754C00F70A82 /* EditBankCardView.swift */,
+				05D055F22922756000F70A82 /* EditBankCard.ViewModel.swift */,
+			);
+			path = Bank;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +455,7 @@
 				05C3151E290EE0E900D17396 /* DynamicFetchRequestView.swift in Sources */,
 				05CED14F291144D900DD7358 /* EditCard.Header.swift in Sources */,
 				05D055D4291FB96200F70A82 /* EditCard.ListView.swift in Sources */,
+				05D055E72922714500F70A82 /* BankCard.swift in Sources */,
 				056C7B5F2902D596001A6A2C /* SettingsView.swift in Sources */,
 				056C7B522902D1D6001A6A2C /* ColorSet.swift in Sources */,
 				05D055C0291908AA00F70A82 /* AccountCard.Password.swift in Sources */,
@@ -428,8 +463,11 @@
 				05D055DB2920F2F100F70A82 /* TextField+filteredText.swift in Sources */,
 				05CED1382911185500DD7358 /* Card.swift in Sources */,
 				05C3151B290ECF9000D17396 /* AsyncImage.swift in Sources */,
+				05D055F32922756000F70A82 /* EditBankCard.ViewModel.swift in Sources */,
+				05D055EE292272DE00F70A82 /* BankCard.ViewModel.swift in Sources */,
 				056C7B6C2903D259001A6A2C /* Card.ScrollView.swift in Sources */,
 				056C7B5B2902D536001A6A2C /* TemplatesView.swift in Sources */,
+				05D055F12922754C00F70A82 /* EditBankCardView.swift in Sources */,
 				05D055BE2919086300F70A82 /* AccountCard.Login.swift in Sources */,
 				05CED12C290EE36400DD7358 /* Home.ViewModel.swift in Sources */,
 				05D055D7291FBAE100F70A82 /* EditAccountCard.ViewModel.swift in Sources */,
@@ -437,11 +475,13 @@
 				05CED1352910435400DD7358 /* EditAccountCardView.swift in Sources */,
 				056C7B4C2902D1D6001A6A2C /* FontSet.swift in Sources */,
 				05D055D9291FBD7E00F70A82 /* Constants.swift in Sources */,
+				05D055E52922710D00F70A82 /* AccountCard.swift in Sources */,
 				056C7B582902D501001A6A2C /* HomeView.swift in Sources */,
 				05D055BC2919081D00F70A82 /* Card.Header.swift in Sources */,
 				05D055BA291906B500F70A82 /* String+asPassword.swift in Sources */,
 				05D055C429190C3900F70A82 /* Card.Detail.swift in Sources */,
 				05CED1302910405A00DD7358 /* Image+init.swift in Sources */,
+				05D055EC292272BE00F70A82 /* BankCardView.swift in Sources */,
 				05D055B7291904A100F70A82 /* RoundedBackground.swift in Sources */,
 				056C7B362902CA5D001A6A2C /* ComradeMajorApp.swift in Sources */,
 				05D055D2291FAC7D00F70A82 /* Keychain+shared.swift in Sources */,

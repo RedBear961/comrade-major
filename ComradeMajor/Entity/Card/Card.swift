@@ -6,9 +6,6 @@
 //
 
 import CoreData
-import Foundation
-import SwiftUI
-import KeychainAccess
 
 @objc(Card)
 public class Card: NSManagedObject, Identifiable {
@@ -40,7 +37,10 @@ public class Card: NSManagedObject, Identifiable {
     @NSManaged public var id: UUID
     @NSManaged public var title: String
     @NSManaged public var detail: String
-    @NSManaged public var template: Template
+    
+    public var template: Template {
+        preconditionFailure("Этот метод должен быть переопределен в наследнике!")
+    }
     
     // MARK: - Override
     
@@ -48,36 +48,27 @@ public class Card: NSManagedObject, Identifiable {
         super.awakeFromInsert()
         self.id = UUID()
     }
+    
+    public func update(with plainCard: PlainCard) {
+        self.domain = plainCard.domain
+        self.title = plainCard.title
+        self.detail = plainCard.detail
+    }
 }
 
-@objc(AccountCard)
-public class AccountCard: Card {
+public protocol PlainCard {
     
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<AccountCard> {
-        return NSFetchRequest<AccountCard>(entityName: "AccountCard")
-    }
+    var id: UUID { get }
+    var domain: String { get }
+    var title: String { get }
+    var detail: String { get }
+}
+
+struct PlainBankCard: PlainCard {
     
-    @NSManaged public var login: String
-    @Published public var password: String = "" {
-        willSet {
-            objectWillChange.send()
-            try! Keychain.shared.set(password, key: id.uuidString)
-        }
-    }
+    let id: UUID
     
-    // MARK: - Override
-    
-    public override func awakeFromFetch() {
-        super.awakeFromFetch()
-        self.password = (try? Keychain.shared.get(id.uuidString)) ?? ""
-    }
-    
-    public override func awakeFromInsert() {
-        super.awakeFromInsert()
-        self.template = .account
-    }
-    
-    public override func prepareForDeletion() {
-        try! Keychain.shared.remove(id.uuidString)
-    }
+    var domain: String
+    var title: String
+    var detail: String
 }

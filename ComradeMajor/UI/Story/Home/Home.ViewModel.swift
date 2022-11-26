@@ -33,11 +33,11 @@ public final class HomeViewModel: ObservableObject {
     func editView() -> some View {
         switch template {
         case .account:
-            return editAccountView()
+            return AnyView(editAccountView())
         case .bankCard:
-            return editAccountView()
+            return AnyView(editBankCardView())
         case .bankAccount:
-            return editAccountView()
+            return AnyView(editAccountView())
         }
     }
     
@@ -45,6 +45,12 @@ public final class HomeViewModel: ObservableObject {
         let card = AccountCard(context: context)
         let viewModel = EditAccountCardViewModel(card: card, context: context, mode: .new)
         return EditAccountCardView(viewModel: viewModel)
+    }
+    
+    func editBankCardView() -> some View {
+        let card = BankCard(context: context)
+        let viewModel = EditBankCardViewModel(card: card, context: context, mode: .new)
+        return EditBankCardView(viewModel: viewModel)
     }
     
     func delete(_ indexSet: IndexSet, from cards: [Card]) {
